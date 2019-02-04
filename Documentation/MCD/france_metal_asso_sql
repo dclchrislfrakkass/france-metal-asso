@@ -1,0 +1,57 @@
+DROP TABLE IF EXISTS StylePrincipal ;
+CREATE TABLE StylePrincipal (idStylePrincipal_StylePrincipal INT(9) AUTO_INCREMENT NOT NULL,
+nomStylePrincipal_StylePrincipal VARCHAR(250),
+PRIMARY KEY (idStylePrincipal_StylePrincipal)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS StyleSecondaire ;
+CREATE TABLE StyleSecondaire (idStyleSecondaire_StyleSecondaire INT(9) AUTO_INCREMENT NOT NULL,
+nomStyleSecondaire_StyleSecondaire VARCHAR(250),
+idStylePrincipal_StylePrincipal INT(9),
+PRIMARY KEY (idStyleSecondaire_StyleSecondaire)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Groupe ;
+CREATE TABLE Groupe (idGroupe_Groupe INT(9) AUTO_INCREMENT NOT NULL,
+nomGroupe_Groupe VARCHAR(250),
+lien_Groupe VARCHAR(250),
+mail_Groupe VARCHAR(250),
+telephone_Groupe VARCHAR(250),
+PRIMARY KEY (idGroupe_Groupe)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Album ;
+CREATE TABLE Album (idAlbum_Album INT(9) AUTO_INCREMENT NOT NULL,
+nomAlbum_Album VARCHAR(250),
+dateSortie_Album DATE,
+label_Album VARCHAR(250),
+lienEcouteAlbum_Album VARCHAR(250),
+note_Album INT(9),
+idStyleSecondaire_StyleSecondaire INT(9),
+idGroupe_Groupe INT(9),
+idDepartement_Departement INT(9),
+PRIMARY KEY (idAlbum_Album)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Titre ;
+CREATE TABLE Titre (idTitre_Titre INT(9) AUTO_INCREMENT NOT NULL,
+nomTitre_Titre VARCHAR(250),
+clip_Titre VARCHAR(250),
+lienEcouteTitre_Titre VARCHAR(250),
+idAlbum_Album INT(9),
+PRIMARY KEY (idTitre_Titre)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Departement ;
+CREATE TABLE Departement (idDepartement_Departement INT(9) AUTO_INCREMENT NOT NULL,
+nomDepartement_Departement VARCHAR(250),
+idRegion_Region INT(9),
+PRIMARY KEY (idDepartement_Departement)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Region ;
+CREATE TABLE Region (idRegion_Region INT(9) AUTO_INCREMENT NOT NULL,
+nomRegion_Region VARCHAR(250),
+PRIMARY KEY (idRegion_Region)) ENGINE=InnoDB;
+
+ALTER TABLE StyleSecondaire ADD CONSTRAINT FK_StyleSecondaire_idStylePrincipal_StylePrincipal FOREIGN KEY (idStylePrincipal_StylePrincipal) REFERENCES StylePrincipal (idStylePrincipal_StylePrincipal);
+
+ALTER TABLE Album ADD CONSTRAINT FK_Album_idStyleSecondaire_StyleSecondaire FOREIGN KEY (idStyleSecondaire_StyleSecondaire) REFERENCES StyleSecondaire (idStyleSecondaire_StyleSecondaire);
+ALTER TABLE Album ADD CONSTRAINT FK_Album_idGroupe_Groupe FOREIGN KEY (idGroupe_Groupe) REFERENCES Groupe (idGroupe_Groupe);
+ALTER TABLE Album ADD CONSTRAINT FK_Album_idDepartement_Departement FOREIGN KEY (idDepartement_Departement) REFERENCES Departement (idDepartement_Departement);
+ALTER TABLE Titre ADD CONSTRAINT FK_Titre_idAlbum_Album FOREIGN KEY (idAlbum_Album) REFERENCES Album (idAlbum_Album);
+ALTER TABLE Departement ADD CONSTRAINT FK_Departement_idRegion_Region FOREIGN KEY (idRegion_Region) REFERENCES Region (idRegion_Region);
