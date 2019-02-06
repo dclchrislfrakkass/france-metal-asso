@@ -23,7 +23,6 @@ nomAlbum_Album VARCHAR(250),
 dateSortie_Album DATE,
 label_Album VARCHAR(250),
 lienEcouteAlbum_Album VARCHAR(250),
-note_Album INT(9),
 idStyleSecondaire_StyleSecondaire INT(9),
 idGroupe_Groupe INT(9),
 idDepartement_Departement INT(9),
@@ -48,6 +47,19 @@ CREATE TABLE Region (idRegion_Region INT(9) AUTO_INCREMENT NOT NULL,
 nomRegion_Region VARCHAR(250),
 PRIMARY KEY (idRegion_Region)) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS membre ;
+CREATE TABLE membre (idMembre_membre INT(9) AUTO_INCREMENT NOT NULL,
+Pseudo_membre VARCHAR(250),
+email_membre VARCHAR(250),
+motDePasse_membre VARCHAR(250),
+PRIMARY KEY (idMembre_membre)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS a_voté_pour ;
+CREATE TABLE a_voté_pour (idAlbum_Album INT(9) AUTO_INCREMENT NOT NULL,
+idMembre_membre INT(9) NOT NULL,
+PRIMARY KEY (idAlbum_Album,
+ idMembre_membre)) ENGINE=InnoDB;
+
 ALTER TABLE StyleSecondaire ADD CONSTRAINT FK_StyleSecondaire_idStylePrincipal_StylePrincipal FOREIGN KEY (idStylePrincipal_StylePrincipal) REFERENCES StylePrincipal (idStylePrincipal_StylePrincipal);
 
 ALTER TABLE Album ADD CONSTRAINT FK_Album_idStyleSecondaire_StyleSecondaire FOREIGN KEY (idStyleSecondaire_StyleSecondaire) REFERENCES StyleSecondaire (idStyleSecondaire_StyleSecondaire);
@@ -55,3 +67,5 @@ ALTER TABLE Album ADD CONSTRAINT FK_Album_idGroupe_Groupe FOREIGN KEY (idGroupe_
 ALTER TABLE Album ADD CONSTRAINT FK_Album_idDepartement_Departement FOREIGN KEY (idDepartement_Departement) REFERENCES Departement (idDepartement_Departement);
 ALTER TABLE Titre ADD CONSTRAINT FK_Titre_idAlbum_Album FOREIGN KEY (idAlbum_Album) REFERENCES Album (idAlbum_Album);
 ALTER TABLE Departement ADD CONSTRAINT FK_Departement_idRegion_Region FOREIGN KEY (idRegion_Region) REFERENCES Region (idRegion_Region);
+ALTER TABLE a_voté_pour ADD CONSTRAINT FK_a_voté_pour_idAlbum_Album FOREIGN KEY (idAlbum_Album) REFERENCES Album (idAlbum_Album);
+ALTER TABLE a_voté_pour ADD CONSTRAINT FK_a_voté_pour_idMembre_membre FOREIGN KEY (idMembre_membre) REFERENCES membre (idMembre_membre);
