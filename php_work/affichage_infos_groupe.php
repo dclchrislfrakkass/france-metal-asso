@@ -1,10 +1,12 @@
 <?php
 
+require '../php/pdo.php';
+
 // Requete choix Groupe:
 
 $choixgoupe = //goupe choisis au clic
 
-$req = bdd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, mail_Groupe, nomAlbum_Album, dateSortie_Album, label_Album, lienEcouteAlbum_Album, nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal FROM groupe
+$req = $bdd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, mail_Groupe, nomAlbum_Album, dateSortie_Album, label_Album, lienEcouteAlbum_Album, nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal FROM groupe
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal

@@ -31,25 +31,6 @@ $nomAlbum= $ligne[2];
 $sortie = $ligne[3];
 $liens = $ligne[5];
 
-echo 'label : <br>';
-var_dump($label);
-echo '<br>';
-echo 'nom album : <br>';
-var_dump($nomAlbum);
-echo '<br>';
-echo 'nom album : <br>';
-var_dump($sortie);
-echo '<br>';
-echo 'nom album : <br>';
-var_dump($liens);
-    echo '<br>';
-    
-    // echo '|'.implode('|', $ligne).'|';
-
-    //rqt = "INSERT INTO stylesecondaire(idStyleSecondaire_StyleSecondaire,nomStyleSecondaire_StyleSecondaire,idStylePrincipal_StylePrincipal ) VALUES ('','$ligne[0]', '1')";.
-
-    // $rqt = "INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album, lienEcouteAlbum_Album) VALUES (:nomAlbum, :sortie, :label, :liens)";
-
 
 
     $query = $bdd->prepare("INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album, lienEcouteAlbum_Album) VALUES (:nomAlbum, :sortie, :label, :liens)");
@@ -65,11 +46,12 @@ var_dump($liens);
 
 }
 
-
-
-
-////
 ?>
+
+
+
+
+
 <!--
 
 test:
