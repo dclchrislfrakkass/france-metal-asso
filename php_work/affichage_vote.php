@@ -1,5 +1,20 @@
 <?php
 
+// Requete affichage score vote total:
+
+$req = $bdd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, note_Album FROM groupe
+NATURAL JOIN album
+NATURAL JOIN stylesecondaire
+NATURAL JOIN styleprincipal
+ORDER BY note_Album");
+
+while ($row = $req->fetch()){
+     
+}
+$req >closeCursor();
+
+
+
 // Requete affichage score votes catégorie STYLE METAL EXTREME:
 
 $req = $bdd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, note_Album FROM groupe
