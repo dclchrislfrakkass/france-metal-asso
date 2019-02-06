@@ -17,13 +17,5 @@ catch (Exception $e)
 ?>
 
 
-<? php
-
-$query = $bdd->prepare("SELECT * FROM `album` where nomAlbum_Album like '%ca%'");
-
-
-while ($q = $query->fetch()){ ?>
-        <strong><?php echo $q['nomAlbum_Album']?> </strong>     
-         }; ?>
-        
+<? 
 
