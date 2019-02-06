@@ -1,6 +1,11 @@
 <?php
+<<<<<<< Updated upstream
 // Appel conexion a la base
 require '../php/pdo.php';
+=======
+include '../php/pdo.php';
+
+>>>>>>> Stashed changes
 // Requete catégorie STYLE METAL EXTREME:
 
 $req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
@@ -83,7 +88,11 @@ $req ->closeCursor();
 
 // Requete catégorie STYLE METAL FUSION:
 
+<<<<<<< Updated upstream
 $req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
+=======
+$req = $bdd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
+>>>>>>> Stashed changes
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal

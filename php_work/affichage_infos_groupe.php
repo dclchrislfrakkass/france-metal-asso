@@ -18,4 +18,8 @@ while ($row = $req->fetch()){
      
 }
 
+<<<<<<< Updated upstream
 $req -> closeCursor();
+=======
+$req ->closeCursor();
+>>>>>>> Stashed changes
