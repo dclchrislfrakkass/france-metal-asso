@@ -21,9 +21,6 @@ $csv->setFlags(SplFileObject::READ_CSV);
 $csv->setCsvControl('|');
 
 foreach($csv as $ligne){
-    print_r($ligne);
-    echo '<br><br><br>';
-
 
     // pour enlever la contrainte de clé étrangère
     $requete_pdo = $bdd->prepare("set FOREIGN_KEY_CHECKS=0");
@@ -44,10 +41,6 @@ $liens = $ligne[5];
         'sortie'=> $sortie,
         'liens'=> $liens
     ));
-    echo '<br>';
-    var_dump($query);
-    echo '<br>';
-
 }
 
 
@@ -113,7 +106,6 @@ $query->execute(array(
     'clipTitre'=> $clipTitre,
     'lienTitre' => $lienTitre
 ));
-
 
 }
 
