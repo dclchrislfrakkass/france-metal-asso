@@ -10,7 +10,6 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal FROM styleprincipal");
 while ($row = $req->fetch()){
      echo '<h1>'.$row['nomStylePrincipal_StylePrincipal']. '</h1>';
 }
-
 $req -> closeCursor();
 
 // Recuperation des style secondaires selon le style principale choisi:
@@ -42,7 +41,7 @@ $query->execute(array(
     'mailGroupe' => $mail,
     'telGroupe' => $telephone
 ));
-
+$req -> closeCursor();
 
 //  Insertion des infos dans la table album:
 
@@ -50,11 +49,25 @@ $nomAlbum ='nom de l album';
 $dateSortie = 'date de sortie';
 $label = 'label';
 
+$req = $bdd->prepare("INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album) VALUES (:nomAlbum, :sortie, :label, :liens)");
+$query->execute(array(
+    'label' => $label,
+    'nomAlbum'=>$nomAlbum,
+    'sortie'=> $sortie
+));
+$req -> closeCursor();
+
 // // Insertion des infos dans la table titre:
 
-// lien du clip titre
-// lien ecoute du titre (jusqu a 3 liens)
+$lienClip = 'lien ddu ou des clip titre';
+$lienTitre ='lien ecoute du ou des titre';
 
+$query = $bdd->prepare("INSERT INTO titre (clip_Titre, lienEcouteTitre_Titre) VALUES (:clipTitre, :lienTitre)");
+$query->execute(array(
+    'clipTitre'=> $lienClip,
+    'lienTitre' => $lienTitre
+));
+$req -> closeCursor();
 
 
 

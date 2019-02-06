@@ -13,37 +13,50 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Card Tittle</title>
 </head>
 <body>
 
 <!-- Card -->
     <div class="contenair">
-        <div class="row">
+        <div class="row justify-content-md-center">
         <?php
+        $chaine = '';
         while ($row = $req->fetch()){
-        ?>    
-                <div class="card col-sm-12 col-md-6 col-lg-4">
-                    <!-- Card image -->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                <!-- Card content -->
-                    <div class="card-body">
-                        <!-- Title -->
-                        <h4 class="card-title"><?php echo $row['nomStylePrincipal_StylePrincipal'];?></h4>
-                        <!-- Text -->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <!-- Button -->
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
+            $test = $row['nomStylePrincipal_StylePrincipal'];
+            $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
+            NATURAL JOIN styleprincipal
+            WHERE nomStylePrincipal_StylePrincipal = :test");
+            $req2->execute(array(
+                'test' => $test
+            ));
+            while ($row2 = $req2->fetch()){
+                $chaine = $row2['nomStyleSecondaire_StyleSecondaire'].$chaine;
+            }
+            ?>    
+            <div class="card col-sm-12 col-md-5 col-lg-3 m-1"> 
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
+            <!-- Card content -->
+                <div class="card-body flex-column justify-content-between">
+                    <!-- Title -->
+                    <h5 class="card-title"><?php echo $row['nomStylePrincipal_StylePrincipal'];?></h5>
+                    <!-- Text -->
+                    <p class="card-text"><?php echo substr($chaine,0, 75). '...' ;?></p>
+                    <!-- Button -->
+                    <a href="#" class="bouton_categorie btn btn-primary w-100">Entrer dans cette catégorie</a>
+                </div>  
+            </div>
         <?php
         }
         $req ->closeCursor();
+        $req2 ->closeCursor();
         ?>
         </div>
     </div>
@@ -53,83 +66,3 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-<!-- 
-// Requete catégorie STYLE METAL DARK AMBIENT ATMO:
-
-$req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='2' ");
-
-while ($row = $req->fetch()){
-     
-}
-
-$req ->closeCursor();
-
-
-
-// Requete catégorie STYLE HARDCORE PUNK:
-
-$req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='3' ");
-
-while ($row = $req->fetch()){
-     
-}
-
-$req ->closeCursor();
-
-
-
-// Requete catégorie STYLE METAL HARD ROCK:
-
-$req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='4' ");
-
-while ($row = $req->fetch()){
-     
-}
-
-$req ->closeCursor();
-
-
-
-// Requete catégorie STYLE METAL HEAVY TRASH:
-
-$req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='5' ");
-
-while ($row = $req->fetch()){
-     
-}
-
-$req ->closeCursor();
-
-
-
-// Requete catégorie STYLE METAL FUSION:
-
-$req = $bd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='5' ");
-
-while ($row = $req->fetch()){
-     
-}
-
-$req ->closeCursor(); -->
