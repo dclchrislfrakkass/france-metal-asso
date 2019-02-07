@@ -3,24 +3,7 @@ include '../php/pdo.php';
 
 // Requete catégorie STYLE METAL EXTREME:
 
-<<<<<<< HEAD:php_work/affichage_groupe_categorie.php
-$req = $bdd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
-NATURAL JOIN album
-NATURAL JOIN stylesecondaire
-NATURAL JOIN styleprincipal
-WHERE idStyleprincipal_StylePrincipal='1' ");
-
-while ($row1 = $req->fetch()){
-    echo $row1['nomGroupe_Groupe'];
-     
-};
-
-$req->closeCursor();
-
-
-
-=======
-$req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styleprincipal");
+$req=$bdd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styleprincipal");
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +56,6 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
 
 
 <!-- 
->>>>>>> dev:php_work/affichage_categorie.php
 // Requete catégorie STYLE METAL DARK AMBIENT ATMO:
 
 $req = $bdd->query("SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire FROM groupe
