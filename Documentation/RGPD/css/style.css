@@ -1,0 +1,75 @@
+* {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    color : white;
+    }
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    justify-content: center;
+    background-color: red;
+    }
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rgpd {
+    margin: 1%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 1%;
+    background-color: black;
+}
+
+.utilisateur {
+    font-size: 200%;
+}
+
+.cd {
+    margin: 2%;
+    background-color: #735A55;
+}
+
+h1 {
+background-color: #541616;
+}
+
+h2 {
+    background-color: #541616;
+}
+
+h1 { font-family: "Irish Grover"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+h3 { font-family: "Irish Grover"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+p { font-family: "Irish Grover"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
+blockquote { font-family: "Irish Grover"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px;
+} pre { font-family: "Irish Grover"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px;
+}
+
+.asso {
+    width: 60%;
+    height: auto;
+    background-color: #960019;
+    margin-left: 25%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    padding: 1%;
+    border: solid white 10px;
+}
+
+.web {
+    width: 60%;
+    height: auto;
+    background-color: #960019;
+    margin-left: 20%;
+    margin-bottom: 1%;
+    padding: 1%;
+    border: solid white 10px;
+}
