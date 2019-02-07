@@ -5,7 +5,7 @@ require '../php/pdo.php';
 
 // Requete catégorie STYLE METAL EXTREME:
 $choix = $_GET['nom'];
-$req = $bd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, nomAlbum_Album, dateSortie_Album, label_Album,nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, clip_Titre, lienEcouteTitre_Titre FROM groupe
+$req = $bd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, nomAlbum_Album, dateSortie_Album, label_Album,nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, clip_Titre, clip_Titre2, lienEcouteTitre_Titre, lienEcouteTitre_Titre2, lienEcouteTitre_Titre3 FROM groupe
 NATURAL JOIN album
 NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
@@ -45,7 +45,11 @@ while ($row = $req->fetch()){
     $dateSortie = $row['dateSortie_Album'];
     $label = $row['label_Album'];
     $clip = $row['clip_Titre'];
+    $clip2 = $row['clip_Titre2'];
     $lienEcoute = $row['lienEcouteTitre_Titre'];
+    $lienEcoute2 = $row['lienEcouteTitre_Titre2'];
+    $lienEcoute3 = $row['lienEcouteTitre_Titre3'];
+
 ?>
     <div class="media flex-column align-items-center align-sm-left flex-sm-row">
         <div>
@@ -58,11 +62,47 @@ while ($row = $req->fetch()){
             <input type="checkbox" class="float-right mr-2">
             <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
                 <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="btn btn-primary btn-md">Site du Groupe</button></a>
-                <p> Nom de l'album : <?php echo $nomAlbum;?> </p>
-                <p> Date de sortie : <?php echo $dateSortie;?> </p>
+                <?php
+            if(!empty($label)){?>
+                <p>Nom de l'album : <?php echo $nomAlbum;?></p>
+            <?php
+            }
+          
+            if(!empty($label)){?>
+                <p>Date de sortie : <?php echo $dateSortie;?></p>
+            <?php
+            }    
+          
+            if(!empty($label)){?>
                 <p> Label : <?php echo $label;?> </p>
-                <p> Lien Clip : <i class="fab fa-youtube" style="color: red;"></i> <?php echo $clip;?> </p>
-                <p> Lien d'ecoute : <i class="far fa-play-circle"></i>  <?php echo $lienEcoute;?> </p>
+            <?php
+            }
+            
+            if(!empty($clip)){?>
+                <p>Lien clip 1 : <i class="fab fa-youtube" style="color: red;"></i><?php echo $clip;?></p>
+            <?php
+            }
+            
+            if(!empty($clip2)){?>
+                <p>Lien clip 2 : <i class="fab fa-youtube" style="color: red;"></i><?php echo $clip2;?></p>
+            <?php
+            }
+            
+            if(!empty($lienEcoute)){?>
+                <p>Lien d'ecoute 1 : <i class="far fa-play-circle"></i><?php echo $lienEcoute;?></p>
+            <?php
+            }    
+           
+            if(!empty($lienEcoute2)){?>
+                <p>Lien d'ecoute 2 : <i class="far fa-play-circle"></i><?php echo $lienEcoute2;?></p>
+            <?php
+            }
+          
+            if(!empty($lienEcoute3)){?>
+                <p>Lien d'ecoute 3 : <i class="far fa-play-circle"></i><?php echo $lienEcoute3;?></p>
+            <?php
+            }
+            ?> 
             </div>
         </div>
     </div>
