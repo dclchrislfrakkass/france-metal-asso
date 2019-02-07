@@ -14,28 +14,27 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Card Tittle</title>
+    <title>Catégories</title>
 </head>
 <body>
-
 <!-- Card -->
     <div class="contenair">
         <div class="row justify-content-md-center">
         <?php
         $chaine = '';
         while ($row = $req->fetch()){
-            $test = $row['nomStylePrincipal_StylePrincipal'];
+            $nomStyle = $row['nomStylePrincipal_StylePrincipal'];
             $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
             NATURAL JOIN styleprincipal
             WHERE nomStylePrincipal_StylePrincipal = :test");
             $req2->execute(array(
-                'test' => $test
+                'test' => $nomStyle
             ));
             while ($row2 = $req2->fetch()){
                 $chaine = $row2['nomStyleSecondaire_StyleSecondaire'].$chaine;
             }
             ?>    
-            <div class="card col-sm-12 col-md-5 col-lg-3 m-1"> 
+            <div class="card col-sm-12 col-md-5 col-xl-3 m-1"> 
                 <!-- Card image -->
                 <div class="view overlay">
                     <img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap">
@@ -44,13 +43,13 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                     </a>
                 </div>
             <!-- Card content -->
-                <div class="card-body flex-column justify-content-between">
+                <div class="card-body cadre_info_categorie">
                     <!-- Title -->
-                    <h5 class="card-title"><?php echo $row['nomStylePrincipal_StylePrincipal'];?></h5>
+                    <h5 class="card-title"><?php echo $nomStyle;?></h5>
                     <!-- Text -->
                     <p class="card-text"><?php echo substr($chaine,0, 75). '...' ;?></p>
                     <!-- Button -->
-                    <a href="#" class="bouton_categorie btn btn-primary w-100">Entrer dans cette catégorie</a>
+                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-primary w-100">Entrer dans cette catégorie</a>
                 </div>  
             </div>
         <?php
