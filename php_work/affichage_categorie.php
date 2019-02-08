@@ -31,7 +31,7 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                 'test' => $nomStyle
             ));
             while ($row2 = $req2->fetch()){
-                $chaine = $row2['nomStyleSecondaire_StyleSecondaire'].$chaine;
+                $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
             }
             ?>    
             <div class="card col-sm-12 col-md-5 col-xl-3 m-1"> 
@@ -43,7 +43,7 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                     </a>
                 </div>
             <!-- Card content -->
-                <div class="card-body cadre_info_categorie">
+                <div class="card-body cadre_info_categorie text-center">
                     <!-- Title -->
                     <h5 class="card-title"><?php echo $nomStyle;?></h5>
                     <!-- Text -->
