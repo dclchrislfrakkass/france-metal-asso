@@ -5,7 +5,7 @@ require '../php/pdo.php';
 
 // Requete catégorie STYLE METAL EXTREME:
 $choix = $_GET['nom'];
-$req = $bd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, nomAlbum_Album, dateSortie_Album, label_Album,nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, clip_Titre, clip_Titre2, lienEcouteTitre_Titre, lienEcouteTitre_Titre2, lienEcouteTitre_Titre3 FROM groupe
+$req = $bd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, nomAlbum_Album, dateSortie_Album, label_Album,nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, clip_Titre, clip_Titre2, lienEcouteTitre_Titre, lienEcouteTitre_Titre2, lienEcouteTitre_Titre3, pochette FROM groupe
 NATURAL JOIN album
 NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
@@ -49,11 +49,18 @@ while ($row = $req->fetch()){
     $lienEcoute = $row['lienEcouteTitre_Titre'];
     $lienEcoute2 = $row['lienEcouteTitre_Titre2'];
     $lienEcoute3 = $row['lienEcouteTitre_Titre3'];
-
+    $pochette = $row['pochette'];
 ?>
     <div class="media flex-column align-items-center align-sm-left flex-sm-row">
         <div>
-            <img src="https://www.lagrosseradio.com/_images/fck/20184.jpg" class="mr-sm-3" style="width:95px">
+            <?php
+            if(empty($pochette)){?>
+                <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3" style="width:95px">
+            <?php
+            } else {?>
+                <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3" style="width:95px">
+            <?php
+            }?>
         </div>
         <div class="media-body text-center text-sm-left">
             <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
