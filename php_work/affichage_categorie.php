@@ -3,7 +3,7 @@ include '../php/pdo.php';
 
 // Requete catégorie STYLE METAL EXTREME:
 
-$req=$bdd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styleprincipal");
+$req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styleprincipal");
 
 ?>
 <!DOCTYPE html>
