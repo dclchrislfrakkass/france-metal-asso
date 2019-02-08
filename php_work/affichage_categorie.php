@@ -31,25 +31,25 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                 'test' => $nomStyle
             ));
             while ($row2 = $req2->fetch()){
-                $chaine = $row2['nomStyleSecondaire_StyleSecondaire'].$chaine;
+                $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
             }
             ?>    
             <div class="card col-sm-12 col-md-5 col-xl-3 m-1"> 
                 <!-- Card image -->
                 <div class="view overlay">
-                    <img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap">
-                    <a href="#">
+                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>"><img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap"></a>
+                    
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
             <!-- Card content -->
-                <div class="card-body cadre_info_categorie">
+                <div class="card-body cadre_info_categorie text-center">
                     <!-- Title -->
                     <h5 class="card-title"><?php echo $nomStyle;?></h5>
                     <!-- Text -->
-                    <p class="card-text"><?php echo substr($chaine,0, 75). '...' ;?></p>
+                    <p class="card-text"><?php echo substr($chaine,0, 90). '...' ;?></p>
                     <!-- Button -->
-                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-primary w-100">Entrer dans cette catégorie</a>
+                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-danger w-100">Entrer dans cette catégorie</a>
                 </div>  
             </div>
         <?php
