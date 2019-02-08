@@ -49,7 +49,7 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                     <!-- Text -->
                     <p class="card-text"><?php echo substr($chaine,0, 75). '...' ;?></p>
                     <!-- Button -->
-                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-primary w-100">Entrer dans cette catégorie</a>
+                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-danger w-100">Entrer dans cette catégorie</a>
                 </div>  
             </div>
         <?php
