@@ -47,7 +47,7 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
                     <!-- Title -->
                     <h5 class="card-title"><?php echo $nomStyle;?></h5>
                     <!-- Text -->
-                    <p class="card-text"><?php echo substr($chaine,0, 75). '...' ;?></p>
+                    <p class="card-text"><?php echo substr($chaine,0, 90). '...' ;?></p>
                     <!-- Button -->
                     <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-danger w-100">Entrer dans cette catégorie</a>
                 </div>  
