@@ -58,10 +58,10 @@ while ($row = $req->fetch()){
         <div class="media-body text-center text-sm-left">
             <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
             <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
-            <button type="button" class="btn btn-primary btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
+            <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
             <input type="checkbox" class="float-right mr-2">
             <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
-                <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="btn btn-primary btn-md">Site du Groupe</button></a>
+                <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="btn btn-danger btn-md">Site du Groupe</button></a>
                 <?php
             if(!empty($label)){?>
                 <p>Nom de l'album : <?php echo $nomAlbum;?></p>
@@ -79,27 +79,27 @@ while ($row = $req->fetch()){
             }
             
             if(!empty($clip)){?>
-                <p>Lien clip 1 : <i class="fab fa-youtube" style="color: red;"></i><?php echo $clip;?></p>
+                <p>Lien clip 1 : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red;"></i></a>
             <?php
             }
             
             if(!empty($clip2)){?>
-                <p>Lien clip 2 : <i class="fab fa-youtube" style="color: red;"></i><?php echo $clip2;?></p>
+              /  Lien clip 2 : <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red;"></i></a></p>
             <?php
             }
             
             if(!empty($lienEcoute)){?>
-                <p>Lien d'ecoute 1 : <i class="far fa-play-circle"></i><?php echo $lienEcoute;?></p>
+                <p>Lien d'ecoute 1 : <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle"></i></a>
             <?php
             }    
            
             if(!empty($lienEcoute2)){?>
-                <p>Lien d'ecoute 2 : <i class="far fa-play-circle"></i><?php echo $lienEcoute2;?></p>
+              /  Lien d'ecoute 2 : <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle"></i></a>
             <?php
             }
           
             if(!empty($lienEcoute3)){?>
-                <p>Lien d'ecoute 3 : <i class="far fa-play-circle"></i><?php echo $lienEcoute3;?></p>
+              /  Lien d'ecoute 3 : <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle"></i></a>
             <?php
             }
             ?> 
