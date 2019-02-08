@@ -37,8 +37,8 @@ $req=$bd->query("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styl
             <div class="card col-sm-12 col-md-5 col-xl-3 m-1"> 
                 <!-- Card image -->
                 <div class="view overlay">
-                    <img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap">
-                    <a href="#">
+                    <a href="./affichage_des_groupes.php?nom=<?php echo $nomStyle;?>"><img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap"></a>
+                    
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>

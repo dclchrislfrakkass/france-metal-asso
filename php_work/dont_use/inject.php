@@ -29,7 +29,7 @@ foreach($csv as $ligne){
     $nomAlbum= $ligne[2];
     $sortie = $ligne[3];
 
-    $query = $bdd->prepare("INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album, lienEcouteAlbum_Album) VALUES (:nomAlbum, :sortie, :label, :liens)");
+    $query = $bdd->prepare("INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album) VALUES (:nomAlbum, :sortie, :label)");
     $query->execute(array(
         'label' => $label,
         'nomAlbum'=>$nomAlbum,
