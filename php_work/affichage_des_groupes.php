@@ -1,4 +1,5 @@
 <?php
+// $_SESSION['ip'] = 'ddgg';
 // Appel conexion a la base
 require '../php/pdo.php';
 // Requete catégorie STYLE METAL EXTREME:
@@ -17,7 +18,7 @@ $req->execute(array(
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
@@ -25,16 +26,22 @@ $req->execute(array(
     <title>Groupes du <?php echo $choix; ?></title>
 </head>
 <header>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-between">
         <a class="navbar-brand" href="#"><?php echo $choix; ?></a>
         <ul class="navbar-nav">
             <li class="nav-item">
             <a class="nav-link" href="./affichage_categorie.php">Retour</a>
             </li>
         </ul>
+        <?php
+        if(!empty($_SESSION['ip'])){?>
+            <button type="button" class="btn btn-danger float-right ">Valider vos Votes</button>
+        <?php
+        }
+        ?>
     </nav>
 </header>
-<body class="position-absolute mt-4 mt-md-3">   
+<body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
     <div class="row">
         <?php 
@@ -69,10 +76,15 @@ $req->execute(array(
                 <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
                 <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
                 <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
-                <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
-                    <p>Votez pour cet Album</p>
-                    <input type="checkbox">
-                </div>
+                <?php    
+                if(!empty($_SESSION['ip'])){?>
+                    <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
+                        <p>Votez pour cet Album</p>
+                        <input type="checkbox">
+                    </div>
+                <?php
+                }
+                ?>
                 <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
                     <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
                     <?php
