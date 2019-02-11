@@ -5,3 +5,19 @@ nombre de style secondaire -> SELECT COUNT(DISTINCT idStyleSecondaire_StyleSecon
 nombre de style principal -> SELECT COUNT(DISTINCT idStylePrincipal_StylePrincipal) FROM styleprincipal
 
 nombre de membre -> SELECT COUNT(*) FROM membre
+
+qui a voté et pour quoi ->
+SELECT nomGroupe_Groupe, nomStyleSecondaire_StyleSecondaire, note_Album, nomStylePrincipal_StylePrincipal, Pseudo_membre FROM groupe
+NATURAL JOIN album
+NATURAL JOIN stylesecondaire
+NATURAL JOIN styleprincipal
+NATURAL JOIN a_voté_pour
+NATURAL JOIN membre
+ORDER BY note_Album
+
+
+
+SELECT nomAlbum_Album, Pseudo_membre FROM groupe
+NATURAL JOIN a_voté_pour
+NATURAL JOIN membre
+NATURAL JOIN album
