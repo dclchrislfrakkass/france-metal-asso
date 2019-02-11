@@ -50,14 +50,12 @@ function metal_vote_content_display(){
 
 
     
-       // echo '<div id="dropElem"><!-- wrapper -->
-        //    <div id="dropContent"><!-- Inside this tag put your popup contents -->
-         //       <div id="dropClose">X</div><!-- this will serve as close button -->
-         //       '.$contenu_popup.'
-         //   </div>
-       // </div>';
-
-        echo $contenu_popup;
+        echo '<div id="dropElem"><!-- wrapper -->
+            <div id="dropContent"><!-- Inside this tag put your popup contents -->
+                <div id="dropClose">X</div><!-- this will serve as close button -->
+                '.$contenu_popup.'
+            </div>
+        </div>';
     }
 
 
