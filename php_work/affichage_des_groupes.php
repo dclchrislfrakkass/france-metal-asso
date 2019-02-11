@@ -23,15 +23,8 @@ $req->execute(array(
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Groupes du <?php echo $choix; ?></title>
-<<<<<<< HEAD
 </head>
 <header>
-=======
-
-    </head>
-    <header>
-    <div class="mt-5 mt-sm-none contenair position-relative">
->>>>>>> 7ec4ba297c89a9b4b0e01c82570dfb3e4eaea2ca
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#"><?php echo $choix; ?></a>
         <ul class="navbar-nav">
@@ -40,7 +33,6 @@ $req->execute(array(
             </li>
         </ul>
     </nav>
-<<<<<<< HEAD
 </header>
 <body class="position-absolute mt-4 mt-md-3">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
@@ -62,156 +54,70 @@ $req->execute(array(
             $pochette = $row['pochette'];
         ?>
 
-            <div class="media flex-column align-items-center align-sm-left flex-sm-row col-md-6">
-                <div>
-                    <?php
-                    if(empty($pochette)){?>
-                        <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
-                    <?php
-                    } else {?>
-                        <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
-                    <?php
-                    }?>
-                </div>
-                <div class="media-body text-center text-sm-left">
-                    <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
-                    <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
-                    <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
-                    <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
-                        <p>Votez pour cet Album</p>
-                        <input type="checkbox">
-                    </div>
-                    <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
-                        <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
-                        <?php
-                    if(!empty($label)){?>
-                        <p>Nom de l'album : <?php echo $nomAlbum;?></p>
-                    <?php
-                    }
-
-                    if(!empty($label)){?>
-                        <p>Date de sortie : <?php echo $dateSortie;?></p>
-                    <?php
-                    }    
-                    
-                    if(!empty($label)){?>
-                        <p> Label : <?php echo $label;?> </p>
-                    <?php
-                    }
-                    
-                    if(!empty($clip)){?>
-                        <p>Clip(s) : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a>
-                    <?php
-                    }
-    
-                    if(!empty($clip2)){?>
-                    <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
-                    <?php
-                    }
-                    
-                    if(!empty($lienEcoute)){?>
-                        <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-                    <?php
-                    }    
-                
-                    if(!empty($lienEcoute2)){?>
-                    <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-                    <?php
-                    }
-                
-                    if(!empty($lienEcoute3)){?>
-                    <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
-                    <?php
-                    }
-                    ?> 
-                    </div>
-=======
-    </header>
-
-            <body class="position-absolute mt-4 md-mt-3">
-                
-                    <div class="row">
-                <?php 
-                $compteur = 1;
-                while ($row = $req->fetch()){
-                    $nomGroupe = $row['nomGroupe_Groupe'];
-                    $styleSec = $row['nomStyleSecondaire_StyleSecondaire'];
-                    $lienSite = $row['lien_Groupe'];
-                    $nomAlbum = $row['nomAlbum_Album'];
-                    $dateSortie = $row['dateSortie_Album'];
-                    $label = $row['label_Album'];
-                    $clip = $row['clip_Titre'];
-                    $clip2 = $row['clip_Titre2'];
-                    $lienEcoute = $row['lienEcouteTitre_Titre'];
-                    $lienEcoute2 = $row['lienEcouteTitre_Titre2'];
-                    $lienEcoute3 = $row['lienEcouteTitre_Titre3'];
-                    $pochette = $row['pochette'];
-                ?>
-        
-                        <div class="media flex-column align-items-center align-sm-left flex-sm-row col-md-6">
-                            <div>
-                                <?php
-                                if(empty($pochette)){?>
-                                    <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
-                                <?php
-                                } else {?>
-                                    <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
-                                <?php
-                                }?>
-                            </div>
-                            <div class="media-body text-center text-sm-left">
-                                <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
-                                <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
-                                <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
-                                <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
-                                    <p>Votez pour cet Album</p>
-                                    <input type="checkbox">
-                                </div>
-                                <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
-                                    <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="btn btn-danger btn-md">Site du Groupe</button></a>
-                                    <?php
-                                if(!empty($label)){?>
-                                    <p>Nom de l'album : <?php echo $nomAlbum;?></p>
-                                <?php
-                                }
-          
-            if(!empty($label)){?>
-                <p>Date de sortie : <?php echo $dateSortie;?></p>
-            <?php
-            }    
-          
-            if(!empty($label)){?>
-                <p> Label : <?php echo $label;?> </p>
-            <?php
-            }
-            
-            if(!empty($clip)){?>
-                <p>Clip(s) : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a>
-            <?php
-            }
-            
-            if(!empty($clip2)){?>
-              <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
-            <?php
-            }
-            
-            if(!empty($lienEcoute)){?>
-                <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-            <?php
-            }    
-           
-            if(!empty($lienEcoute2)){?>
-            <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-            <?php
-            }
-          
-            if(!empty($lienEcoute3)){?>
-            <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
-            <?php
-            }
-            ?> 
->>>>>>> 7ec4ba297c89a9b4b0e01c82570dfb3e4eaea2ca
+        <div class="media flex-column align-items-center align-sm-left flex-sm-row col-md-6">
+            <div>
+                <?php
+                if(empty($pochette)){?>
+                    <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
+                <?php
+                } else {?>
+                    <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
+                <?php
+                }?>
             </div>
+            <div class="media-body text-center text-sm-left">
+                <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
+                <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
+                <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
+                <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
+                    <p>Votez pour cet Album</p>
+                    <input type="checkbox">
+                </div>
+                <div id="MonCollapse<?php echo $compteur ?>" class="collapse">
+                    <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
+                    <?php
+                if(!empty($label)){?>
+                    <p>Nom de l'album : <?php echo $nomAlbum;?></p>
+                <?php
+                }
+
+                if(!empty($label)){?>
+                    <p>Date de sortie : <?php echo $dateSortie;?></p>
+                <?php
+                }    
+                
+                if(!empty($label)){?>
+                    <p> Label : <?php echo $label;?> </p>
+                <?php
+                }
+                
+                if(!empty($clip)){?>
+                    <p>Clip(s) : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a>
+                <?php
+                }
+
+                if(!empty($clip2)){?>
+                <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
+                <?php
+                }
+                
+                if(!empty($lienEcoute)){?>
+                    <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                <?php
+                }    
+            
+                if(!empty($lienEcoute2)){?>
+                <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                <?php
+                }
+            
+                if(!empty($lienEcoute3)){?>
+                <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
+                <?php
+                }
+                ?> 
+            </div>
+        </div>
     </div>
         <?php 
         $compteur ++; 
