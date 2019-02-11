@@ -1,8 +1,10 @@
-.cadre_info_categorie{
+
+
+/* .cadre_info_categorie{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 body {
     background-color: black;
@@ -12,4 +14,9 @@ body {
 .card {
     background-color: black;
     color: white;
+}
+
+.row {
+    width: 100%;
+    margin : 0;
 }
