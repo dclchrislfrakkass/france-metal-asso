@@ -1,3 +1,0 @@
-$('.MonCollapse').collapse({
-    show: true
-    })
