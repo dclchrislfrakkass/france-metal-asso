@@ -1,8 +1,7 @@
-<?php /* Template Name: groupes */ ?>
 <?php
 $_SESSION['ip'] = 'ddgg';
 // Appel conexion a la base
-require 'pdo.php';
+require '../php/pdo.php';
 $title = 'Groupes';
 ob_start();
 $choix = $_GET['nom'];
@@ -21,14 +20,14 @@ $req->execute(array(
         <a class="navbar-brand" href="#"><?php echo $choix; ?></a>
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="./categories/" >Retour</a>
+            <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
             </li>
         </ul>
     </nav>
 </header>
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
-    <form action="/votes/" method="POST">
+    <form action="traitement_vote.php" method="POST">
         <div class="row">
             <?php 
             $compteur = 1;
@@ -51,7 +50,7 @@ $req->execute(array(
                 <div>
                     <?php
                     if(empty($pochette)){?>
-                        <img src="img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
+                        <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
                     <?php
                     } else {?>
                         <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
@@ -126,5 +125,5 @@ $req->execute(array(
         $req -> closeCursor();
         
 $content = ob_get_clean();
-require 'template.php';
+require './template.php';
 ?>
