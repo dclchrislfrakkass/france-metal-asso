@@ -10,12 +10,13 @@ ob_start();
         <?php
         $chaine = '';
         while ($row = $req->fetch()){
+            $idstyle = $row['idStylePrincipal_StylePrincipal'];
             $nomStyle = $row['nomStylePrincipal_StylePrincipal'];
             $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
             NATURAL JOIN styleprincipal
-            WHERE nomStylePrincipal_StylePrincipal = :test");
+            WHERE idStylePrincipal_StylePrincipal = :test");
             $req2->execute(array(
-                'test' => $nomStyle
+                'test' => $idstyle
             ));
             while ($row2 = $req2->fetch()){
                 $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
@@ -35,7 +36,7 @@ ob_start();
                     <!-- Text -->
                     <p class="card-text"><?php echo substr($chaine,0, 90). '...' ;?></p>
                     <!-- Button -->
-                    <a href="./affichage_groupes.php?nom=<?php echo $nomStyle;?>" class="bouton_categorie btn btn-danger w-100">Entrer dans cette catégorie</a>
+                    <a href="./affichage_groupes.php?id=<?php echo $idstyle;?>" class="bouton_categorie btn btn-danger w-100">Entrer dans cette catégorie</a>
                 </div>  
             </div>
         <?php

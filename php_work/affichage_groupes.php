@@ -1,4 +1,5 @@
 <?php
+// $user = wp_get_current_user();
 // $ipUser = $user->wpmem_reg_ip;
 // $userEmail= $user->user_email;
 $ipUser = '1';
@@ -8,20 +9,44 @@ $userEmail= '1';
 require '../php/pdo.php';
 $title = 'Groupes';
 ob_start();
-$choix = $_GET['nom'];
+$choix = $_GET['id'];
+
+$idmembre = 3;
+
+$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM membre
+NATURAL JOIN a_voté_pour
+NATURAL JOIN album
+NATURAL JOIN stylesecondaire
+NATURAL JOIN styleprincipal
+WHERE idMembre_membre=:idmembre
+AND idStyleprincipal_StylePrincipal=:choix");
+$req->execute(array(
+    'idmembre' => $idmembre,
+    'choix' => $choix
+));
+
+$row=$req->fetch();
+$name = $row['nomStylePrincipal_StylePrincipal'];
+if ($row['comptage'] > 3 ){
+    $okvote = false;
+} else {
+    $okvote = true;
+};
+$req->closeCursor();
+
 $req = $bd->prepare("SELECT * FROM groupe
 NATURAL JOIN album
 NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
-WHERE nomStyleprincipal_StylePrincipal=:choix ");
+WHERE idStyleprincipal_StylePrincipal=:choix ");
 $req->execute(array(
     'choix' => $choix
 ));
 ?>
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#"><?php echo $choix; ?></a>
+        <a class="navbar-brand" href="#"><?php echo $name; ?></a>
         <ul class="navbar-nav">
             <li class="nav-item">
             <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
@@ -70,7 +95,7 @@ $req->execute(array(
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($ipUser && $userEmail)){?>
+                    if(!empty($ipUser && $userEmail && $okvote)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -128,7 +153,7 @@ $req->execute(array(
             </div>
             <?php
             // bouton si connecte
-            if(!empty($ipUser && $userEmail)){?>
+            if(!empty($ipUser && $userEmail && $okvote)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
             <?php
             } 

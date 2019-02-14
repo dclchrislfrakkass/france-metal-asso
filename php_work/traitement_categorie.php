@@ -3,7 +3,7 @@
 require '../php/pdo.php';
 // Requete catégorie STYLE METAL EXTREME:
 
-$req = $bd ->prepare("SELECT nomStylePrincipal_StylePrincipal, illustration FROM styleprincipal");
+$req = $bd ->prepare("SELECT * FROM styleprincipal");
 $req -> execute();
 
 ?>
