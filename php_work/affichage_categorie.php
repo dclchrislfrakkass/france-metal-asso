@@ -21,7 +21,7 @@ ob_start();
                 $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
             }
             ?>    
-            <div class="card col-sm-12 col-md-5 col-xl-3 m-1"> 
+            <div class="card col-sm-12 col-md-6 col-xl-4"> 
                 <!-- Card image -->
                 <div class="view overlay">
                     <a href="./affichage_groupes.php?nom=<?php echo $nomStyle;?>"><img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap"></a>

@@ -1,6 +1,9 @@
 <?php
-$ipUser = $user->wpmem_reg_ip;
-$userEmail= $user->user_email;
+// $ipUser = $user->wpmem_reg_ip;
+// $userEmail= $user->user_email;
+$ipUser = '1';
+$userEmail= '1';
+
 // Appel connexion a la base
 require '../php/pdo.php';
 $title = 'Groupes';
@@ -48,7 +51,7 @@ $req->execute(array(
                 $idAlbum = $row['idAlbum_Album'];
             ?>
             <!-- div card de chaque groupe -->
-            <div class="media flex-column align-items-center align-md-left flex-md-row col-md-6">
+            <div class="media flex-column align-items-center align-md-left flex-md-row col-xl-4 col-md-6">
                 <!-- pochette de chaque groupe -->
                 <div>
                     <?php
@@ -75,7 +78,7 @@ $req->execute(array(
                         <?php
                         } 
                         ?>
-                    <!-- div cache -->
+                    <!-- div cache sous le bouton -->
                     <div id="MonCollapse<?php echo $compteur ?>" class="collapse text-center text-md-left">
                         <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
                     

@@ -3,7 +3,7 @@
 require '../php/pdo.php';
 $title = 'Validation de vos votes';
 ob_start();
-$idMembre = 3;
+$idMembre = 2;
 
 ?>
 <header>
@@ -21,6 +21,7 @@ $idMembre = 3;
 <?php
 
 //  Premier vote
+
 $premiervote = $_POST["idAlbum1"];
 $req=$bd->prepare("SELECT * FROM a_voté_pour
 NATURAL JOIN album
@@ -55,7 +56,7 @@ if (!$row){
     ));
     $row4=$req4->fetch();
     echo '<div class="col-md-4">
-            <h4 class="mb-2">Votre vote a été pris en compte '.$row4['nomGroupe_Groupe'].'</h4>
+            <h4 class="mb-2">Votre vote a été pris en compte </h4><h4>'.$row4['nomGroupe_Groupe'].'</h4>
             <img class="mb-2" style="width:95px" src="'.$row4['pochette'].'">
         </div>';
     $req4->closeCursor();
@@ -66,8 +67,6 @@ if (!$row){
         </div>';
 };
 $req->closeCursor();
-
-
 
 // //  Deuxieme vote
 
@@ -107,7 +106,7 @@ if(!empty($_POST["idAlbum2"])){
         ));
         $row4=$req4->fetch();
         echo '<div class="col-md-4">
-                <h4 class="mb-2">Votre vote a été pris en compte '.$row4['nomGroupe_Groupe'].'</h4>
+                <h4 class="mb-2">Votre vote a été pris en compte </h4><h4>'.$row4['nomGroupe_Groupe'].'</h4>
                 <img class="mb-2" style="width:95px" src="'.$row4['pochette'].'">
             </div>';
         $req4->closeCursor();
@@ -157,7 +156,7 @@ if(!empty($_POST["idAlbum3"])){
         ));
         $row4=$req4->fetch();
         echo '<div class="col-md-4">
-                <h4 class="mb-2">Votre vote a été pris en compte '.$row4['nomGroupe_Groupe'].'</h4>
+                <h4 class="mb-2">Votre vote a été pris en compte </h4><h4>'.$row4['nomGroupe_Groupe'].'</h4>
                 <img class="mb-2" style="width:95px" src="'.$row4['pochette'].'">
             </div>';
         $req4->closeCursor();

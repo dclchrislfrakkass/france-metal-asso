@@ -35,9 +35,15 @@ ob_start();
                         'idAlbum' => $check
                     ));
                     $row = $req->fetch();
+                  
+                    if(empty($row['pochette'])){
+                        $pochette = '<img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
+                    } else {
+                        $pochette = '<img src="'.$row['pochette'].'" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
+                    }
                     echo '<div class="col12 col-md-4">
                     <h4>'.$row['nomGroupe_Groupe'].'</h4>
-                    <img src="'.$row['pochette'].'"class="mb-2" style="width:95px">
+                    '.$pochette.'
                     <input type="hidden" name="idAlbum'.$compteur.'" value="'.$row['idAlbum_Album'].'">
                     </div>';
                     $compteur++;
@@ -47,8 +53,7 @@ ob_start();
                 <?php
             } 
             ?>
-        
-        <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos choix</button>
+            <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos choix</button>
         </form>
         <?php
 $content = ob_get_clean();
