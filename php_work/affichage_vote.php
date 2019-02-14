@@ -46,7 +46,7 @@ while ($row = $req->fetch()){
         $chaine2 = $row2['idMembre_membre']." ".$chaine2;
     }
     echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
-    echo "<img src='".$row["illustration"]."' style='width:90%;'>";
+    echo "<img class='mb-4'src='".$row["pochette"]."' style='width:90%;'>";
     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
     // echo "<p><strong> id album : </strong>".$row['idAlbum_Album']."</p>";
     echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";

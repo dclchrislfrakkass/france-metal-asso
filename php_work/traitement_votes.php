@@ -4,10 +4,10 @@ $requetestyle = $bd -> prepare("SELECT count(idStyleprincipal_StylePrincipal) AS
 $requetestyle -> execute();
 $row = $requetestyle->fetch();
 $NBID = $row['NBID'];
+echo "<div class='row'>";
 
 for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
     
-    echo "<div class='d-flex'>";
         // var_dump($req10);
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
         WHERE idStyleprincipal_StylePrincipal=:ccount
@@ -44,18 +44,19 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
                 NATURAL JOIN a_voté_pour
                 WHERE idStyleprincipal_StylePrincipal=:ccount
                 GROUP BY nomGroupe_Groupe
-                ORDER BY note_Album DESC");
+                ORDER BY note_Album DESC limit 5");
                 $req -> execute(array(
                     'ccount' => $ccount
                 ));
-                
+                $tcount = 1;
                 while (!empty($row = $req->fetch())){
-                    
+                    echo "<p><strong> TOP ".$tcount."</strong>";
                     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
                     echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";
                     echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
                     echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p><br>";
                     
+                    $tcount ++;
                     // echo "<p><strong> Pseudo des votants : </strong>".$chaine."</p><br>";
                 }
                 // echo "</div>";
@@ -63,8 +64,8 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
             $requetephoto->closeCursor();
             $req->closeCursor();
             echo "</div>";
-            echo "</div>";
         }
+        echo "</div>";
         // echo "</div>";
         $content = ob_get_clean();
         require './template.php';
