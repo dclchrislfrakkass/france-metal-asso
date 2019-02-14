@@ -1,5 +1,6 @@
 <?php
-$_SESSION['ip'] = '11';
+$ipUser = $user->wpmem_reg_ip;
+$userEmail= $user->user_email;
 // Appel connexion a la base
 require '../php/pdo.php';
 $title = 'Groupes';
@@ -66,7 +67,7 @@ $req->execute(array(
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($_SESSION['ip'])){?>
+                    if(!empty($ipUser && $userEmail)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -124,7 +125,7 @@ $req->execute(array(
             </div>
             <?php
             // bouton si connecte
-            if(!empty($_SESSION['ip'])){?>
+            if(!empty($ipUser && $userEmail)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
             <?php
             } 
