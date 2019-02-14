@@ -1,9 +1,19 @@
 <?php
 // Appel conexion a la base
-require '../php/pdo.php'; ?>
-<!-- Requete affichage score vote total: -->
+require '../php/pdo.php';
+$title = 'Résultat Catégories';
+ob_start();
+?>
 
-<h1>Affichage des 3 groupes ayant le plus de vote toutes catégories confondues</h1>
+<?php 
+$req7 = $bd->query("SELECT count(*) FROM a_voté_pour");
+$voteTotal = $req7->fetch();
+?>
+
+<h1 class="text-center">Les 3 groupes ayant le plus de votes</h1>
+<h2 class="text-center">Votes Total : <?=$voteTotal['count(*)']?></h2>
+
+<div class="row">
 
 
 <?php 
