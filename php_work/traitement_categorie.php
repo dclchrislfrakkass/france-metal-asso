@@ -1,5 +1,5 @@
 <?php
-// Appel conexion a la base
+// Appel connexion a la base
 require '../php/pdo.php';
 // Requete catégorie STYLE METAL EXTREME:
 

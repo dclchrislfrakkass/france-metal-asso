@@ -1,11 +1,11 @@
 <?php
-$_SESSION['ip'] = 'ddgg';
-// Appel conexion a la base
+$_SESSION['ip'] = 'vv';
+// Appel connexion a la base
 require '../php/pdo.php';
 $title = 'Groupes';
 ob_start();
 $choix = $_GET['nom'];
-$req = $bd->prepare("SELECT nomGroupe_Groupe, lien_Groupe, nomAlbum_Album, dateSortie_Album, label_Album,nomStyleSecondaire_StyleSecondaire, nomStylePrincipal_StylePrincipal, clip_Titre, clip_Titre2, lienEcouteTitre_Titre, lienEcouteTitre_Titre2, lienEcouteTitre_Titre3, pochette FROM groupe
+$req = $bd->prepare("SELECT * FROM groupe
 NATURAL JOIN album
 NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
@@ -44,6 +44,7 @@ $req->execute(array(
                 $lienEcoute2 = $row['lienEcouteTitre_Titre2'];
                 $lienEcoute3 = $row['lienEcouteTitre_Titre3'];
                 $pochette = $row['pochette'];
+                $idAlbum = $row['idAlbum_Album'];
             ?>
 
             <div class="media flex-column align-items-center align-md-left flex-md-row col-md-6">
@@ -63,9 +64,9 @@ $req->execute(array(
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php    
                     if(!empty($_SESSION['ip'])){?>
-                        <div class="float-none float-sm-right text-center mr-sm-2 mb-2 mb-sm-none">
+                        <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
-                            <input type="checkbox" name="style[]" value="<?php echo $nomGroupe; ?>">
+                            <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
                             <?php
                             } 
                             ?>
@@ -116,6 +117,7 @@ $req->execute(array(
                 </div>
             </div>
         </div>
+    <!-- faire un if pour enlever le bouton   -->
     <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
 
     </form>
