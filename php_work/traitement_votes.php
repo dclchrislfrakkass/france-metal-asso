@@ -1,5 +1,4 @@
 <?php 
-// Requete catégorie STYLE HARDCORE PUNK:
 $requetestyle = $bd -> prepare("SELECT count(idStyleprincipal_StylePrincipal) AS NBID FROM styleprincipal");
 $requetestyle -> execute();
 $row = $requetestyle->fetch();
@@ -7,7 +6,6 @@ $NBID = $row['NBID'];
 
     for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
        
-        // var_dump($req10);
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
         WHERE idStyleprincipal_StylePrincipal=:ccount
         ");

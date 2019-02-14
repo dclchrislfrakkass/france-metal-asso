@@ -8,7 +8,7 @@ ob_start();
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./affichage_categorie.php">Retour aux Catégories</a>
+                <a class="nav-link" href="./affichage_categorie.php">Annuler et retourner aux atégories</a>
             </li>
         </ul>
     </nav>
@@ -22,7 +22,7 @@ ob_start();
             if(empty($_POST["idAlbum"])) {
                 echo '<h3>Vous n\'avez pas sélectionné de groupes</h3>';
             } elseif (!empty($_POST["idAlbum"])){
-                echo '<h3 class="mb-3">Vous avez voté pour:</h3>';
+                echo '<h3 class="mb-3">Vous voulez voter pour:</h3>';
                 ?>
                 <div class="row">
                 <?php
@@ -50,10 +50,10 @@ ob_start();
                 }
                 ?>
                 </div>
+                <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos votes</button>
                 <?php
             } 
             ?>
-            <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos choix</button>
         </form>
         <?php
 $content = ob_get_clean();

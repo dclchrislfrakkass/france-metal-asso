@@ -11,7 +11,15 @@ $title = 'Groupes';
 ob_start();
 $choix = $_GET['id'];
 
-$idmembre = 3;
+$idmembre = 5;
+$req=$bd->prepare("SELECT * FROM styleprincipal
+WHERE idStyleprincipal_StylePrincipal=:choix");
+$req->execute(array(
+    'choix' => intval($choix)
+));
+$row=$req->fetch();
+$name = $row['nomStylePrincipal_StylePrincipal'];
+$req->closeCursor();
 
 $req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM membre
 NATURAL JOIN a_voté_pour
@@ -22,16 +30,34 @@ WHERE idMembre_membre=:idmembre
 AND idStyleprincipal_StylePrincipal=:choix");
 $req->execute(array(
     'idmembre' => $idmembre,
-    'choix' => $choix
+    'choix' => intval($choix)
 ));
 
 $row=$req->fetch();
-$name = $row['nomStylePrincipal_StylePrincipal'];
-if ($row['comptage'] > 3 ){
-    $okvote = false;
-} else {
-    $okvote = true;
-};
+
+
+switch ($row['comptage']) {
+    case 3:
+        $okvote = false;
+        $longueur = 0;
+        $texte = 'Plus de votes';
+        break;
+    case 2:
+        $okvote = true;
+        $longueur = 1;
+        $texte = '1 vote disponible';
+        break;
+    case 1:
+        $okvote = true;
+        $longueur = 2;
+        $texte = '2 votes disponibles';
+        break;
+    case 0:
+        $okvote = true;
+        $longueur = 3;
+        $texte = '3 votes disponibles';
+        break;
+}
 $req->closeCursor();
 
 $req = $bd->prepare("SELECT * FROM groupe
@@ -46,12 +72,13 @@ $req->execute(array(
 ?>
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#"><?php echo $name; ?></a>
+        <p class="navbar-brand mb-0" href="#"><?php echo $name; ?></p>
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
+                <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
             </li>
         </ul>
+        <p class="mb-0 ml-2"><?php echo $texte; ?></p>
     </nav>
 </header>
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
@@ -152,13 +179,14 @@ $req->execute(array(
                 </div>
             </div>
             <?php
+            $compteur ++; 
+            };
             // bouton si connecte
             if(!empty($ipUser && $userEmail && $okvote)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
+                <p><?php echo $texte;?></p>
             <?php
-            } 
-            $compteur ++; 
-            } 
+            };
             $req -> closeCursor();
             ?>
         </div>
