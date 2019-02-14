@@ -1,5 +1,5 @@
 <?php
-$_SESSION['ip'] = 'vv';
+$_SESSION['ip'] = '11';
 // Appel connexion a la base
 require '../php/pdo.php';
 $title = 'Groupes';
@@ -46,8 +46,9 @@ $req->execute(array(
                 $pochette = $row['pochette'];
                 $idAlbum = $row['idAlbum_Album'];
             ?>
-
+            <!-- div card de chaque groupe -->
             <div class="media flex-column align-items-center align-md-left flex-md-row col-md-6">
+                <!-- pochette de chaque groupe -->
                 <div>
                     <?php
                     if(empty($pochette)){?>
@@ -58,74 +59,82 @@ $req->execute(array(
                     <?php
                     }?>
                 </div>
+                <!-- infos de chaque groupe -->
                 <div class="media-body d-flex flex-column d-md-block align-items-center align-items-md-left">
                     <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
                     <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
-                    <?php    
+                    <?php  
+                    // checkbox si connecte  
                     if(!empty($_SESSION['ip'])){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
-                            <?php
-                            } 
-                            ?>
                         </div>
+                        <?php
+                        } 
+                        ?>
+                    <!-- div cache -->
                     <div id="MonCollapse<?php echo $compteur ?>" class="collapse text-center text-md-left">
                         <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
+                    
                         <?php
-                    if(!empty($nomAlbum)){?>
-                        <p>Nom de l'album : <?php echo $nomAlbum;?></p>
-                    <?php
-                    }
+                        if(!empty($nomAlbum)){?>
+                            <p>Nom de l'album : <?php echo $nomAlbum;?></p>
+                        <?php
+                        }
 
-                    if(!empty($dateSortie)){?>
-                        <p>Date de sortie : <?php echo $dateSortie;?></p>
-                    <?php
-                    }    
-                    
-                    if(!empty($label)){?>
-                        <p> Label : <?php echo $label;?> </p>
-                    <?php
-                    }
-                    
-                    if(!empty($clip)){?>
-                        <p>Clip(s) : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a>
-                    <?php
-                    }
+                        if(!empty($dateSortie)){?>
+                            <p>Date de sortie : <?php echo $dateSortie;?></p>
+                        <?php
+                        }    
+                        
+                        if(!empty($label)){?>
+                            <p> Label : <?php echo $label;?> </p>
+                        <?php
+                        }
+                        
+                        if(!empty($clip)){?>
+                            <p>Clip(s) : <a target="_blank" href="<?php echo $clip;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a>
+                        <?php
+                        }
 
-                    if(!empty($clip2)){?>
-                    <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
-                    <?php
-                    }
+                        if(!empty($clip2)){?>
+                            <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
+                        <?php
+                        }
+                        
+                        if(!empty($lienEcoute)){?>
+                            <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                        <?php
+                        }    
                     
-                    if(!empty($lienEcoute)){?>
-                        <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-                    <?php
-                    }    
-                
-                    if(!empty($lienEcoute2)){?>
-                    <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
-                    <?php
-                    }
-                
-                    if(!empty($lienEcoute3)){?>
-                    <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
-                    <?php
-                    }
-                    ?> 
+                        if(!empty($lienEcoute2)){?>
+                            <a target="_blank" href="<?php echo $lienEcoute2;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                        <?php
+                        }
+                    
+                        if(!empty($lienEcoute3)){?>
+                            <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
+                        <?php
+                        }
+                        ?> 
+                    </div>
                 </div>
             </div>
+            <?php
+            // bouton si connecte
+            if(!empty($_SESSION['ip'])){?>
+                <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
+            <?php
+            } 
+            $compteur ++; 
+            } 
+            $req -> closeCursor();
+            ?>
         </div>
-    <!-- faire un if pour enlever le bouton   -->
-    <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
-
     </form>
-        <?php 
-        $compteur ++; 
-        } 
-        $req -> closeCursor();
-        
+<?php
 $content = ob_get_clean();
 require './template.php';
 ?>
