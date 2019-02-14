@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Appel conexion a la base
+// Appel connexion a la base
 require '../php/pdo.php';
 
 // Recuperation des styles principaux:

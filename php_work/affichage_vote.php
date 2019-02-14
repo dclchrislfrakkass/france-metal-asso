@@ -1,5 +1,3 @@
-
-
 <?php
 // Appel conexion a la base
 require '../php/pdo.php'; ?>
@@ -10,13 +8,8 @@ require '../php/pdo.php'; ?>
 
 <?php 
 //comptage des votants total
-<<<<<<< HEAD
-$req2 = $bd->query("SELECT count(*) FROM a_voté_pour");
-$voteTotal = $req2->fetch();
-=======
 $req7 = $bd->query("SELECT count(*) FROM a_voté_pour");
 $voteTotal = $req7->fetch();
->>>>>>> systemeVote
 
 $req = $bd->query("SELECT * FROM groupe
 NATURAL JOIN album
@@ -39,17 +32,9 @@ while ($row = $req->fetch()){
         'idalbum' => $row['idAlbum_Album']
     ));
     while ($row2 = $req2->fetch()){
-<<<<<<< HEAD
-        // var_dump($req2);
-=======
->>>>>>> systemeVote
         $chaine = $row2['Pseudo_membre'].", ".$chaine;
         $chaine2 = $row2['idMembre_membre']." ".$chaine2;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> systemeVote
     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
     echo "<p><strong> id album : </strong>".$row['idAlbum_Album']."</p>";
     echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']." / ".$voteTotal['count(*)']."</p>";
@@ -57,17 +42,8 @@ while ($row = $req->fetch()){
     echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p>";
     echo "<p><strong> Catégorie : </strong>".$row['nomStylePrincipal_StylePrincipal']."</p>";
     echo "<p><strong> Pseudo des votants : </strong>".$chaine."</p><br>";
-<<<<<<< HEAD
-
-}
-$req ->closeCursor();
-
-
-include 'traitement_votes.php';
-=======
 }
 $req ->closeCursor();
 $req7 ->closeCursor();
 
 include './traitement_votes.php';
->>>>>>> systemeVote
