@@ -5,8 +5,9 @@ $requetestyle -> execute();
 $row = $requetestyle->fetch();
 $NBID = $row['NBID'];
 
-    for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
-       
+for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
+    
+    echo "<div class='d-flex'>";
         // var_dump($req10);
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
         WHERE idStyleprincipal_StylePrincipal=:ccount
@@ -15,7 +16,9 @@ $NBID = $row['NBID'];
             'ccount' => $ccount
         ));
         $row = $requetephoto->fetch();
-        echo "<img src='".$row["illustration"]."' style='width:15%;'>";
+        
+        echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
+        echo "<img src='".$row["illustration"]."' style='width:80%;'>";
 
         $req = $bd->prepare("SELECT * FROM groupe
         NATURAL JOIN album
@@ -32,6 +35,7 @@ $NBID = $row['NBID'];
 
         if(empty($row['note_Album'])){
                 echo '<p>Aucun vote dans cette catégorie</p>';
+                echo "</div>";
             } else {
                 $req = $bd->prepare("SELECT * FROM groupe
                 NATURAL JOIN album
@@ -44,17 +48,25 @@ $NBID = $row['NBID'];
                 $req -> execute(array(
                     'ccount' => $ccount
                 ));
+                
                 while (!empty($row = $req->fetch())){
+                    
                     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
-                    // echo "<p><strong> Nombre de vote : </strong>".$row3['note_Album']." / ".$voteTotal['count(*)']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
+                    echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";
+                    echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
                     echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p><br>";
+                    
                     // echo "<p><strong> Pseudo des votants : </strong>".$chaine."</p><br>";
                 }
+                // echo "</div>";
             }
-        $requetephoto->closeCursor();
-        $req->closeCursor();
+            $requetephoto->closeCursor();
+            $req->closeCursor();
+            echo "</div>";
+            echo "</div>";
         }
+        // echo "</div>";
         $content = ob_get_clean();
         require './template.php';
         ?>
-        ?>
+        

@@ -45,14 +45,17 @@ while ($row = $req->fetch()){
         $chaine = $row2['Pseudo_membre'].", ".$chaine;
         $chaine2 = $row2['idMembre_membre']." ".$chaine2;
     }
-    echo "<img src='".$row["illustration"]."' style='width:40%;'>";
+    echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
+    echo "<img src='".$row["illustration"]."' style='width:90%;'>";
     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
-    echo "<p><strong> id album : </strong>".$row['idAlbum_Album']."</p>";
-    echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']." / ".$voteTotal['count(*)']."</p>";
+    // echo "<p><strong> id album : </strong>".$row['idAlbum_Album']."</p>";
+    echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";
+    echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']."</p>";
     // echo "<p><strong> id  des votants : </strong>".$chaine2."</p>";
     echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p>";
     echo "<p><strong> Catégorie : </strong>".$row['nomStylePrincipal_StylePrincipal']."</p>";
     echo "<p><strong> Pseudo des votants : </strong>".$chaine."</p><br>";
+    echo "</div>";
 }
 ?>
 </div>
