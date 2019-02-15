@@ -1,8 +1,8 @@
-/* .cadre_info_categorie{
+.cadre_info_categorie{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-} */
+}
 
 body {
     background-color: black;

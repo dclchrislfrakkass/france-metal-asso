@@ -48,7 +48,6 @@ ob_start();
                 <?php
             } 
             ?>
-        
         <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos choix</button>
         </form>
         <?php

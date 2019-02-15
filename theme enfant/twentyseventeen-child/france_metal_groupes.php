@@ -7,45 +7,88 @@ $userID= $user->ID;
 $userlogin = $user->user_login;
 $username = $user->display_name;
 
-
 // Appel connexion a la base
 require 'pdo.php';
 $title = 'Groupes';
 ob_start();
-$choix = $_GET['nom'];
+$choix = $_GET['id'];
+
+$idmembre = $userID;
+$req=$bd->prepare("SELECT * FROM styleprincipal
+WHERE idStyleprincipal_StylePrincipal=:choix");
+$req->execute(array(
+    'choix' => intval($choix)
+));
+$row=$req->fetch();
+$name = $row['nomStylePrincipal_StylePrincipal'];
+$req->closeCursor();
+
+$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM wp_users
+NATURAL JOIN a_voté_pour
+NATURAL JOIN album
+NATURAL JOIN stylesecondaire
+NATURAL JOIN styleprincipal
+WHERE idMembre_membre=:idmembre
+AND idStyleprincipal_StylePrincipal=:choix");
+$req->execute(array(
+    'idmembre' => $idmembre,
+    'choix' => intval($choix)
+));
+
+$row=$req->fetch();
+
+switch ($row['comptage']) {
+    case 3:
+        $okvote = false;
+        $longueur = 0;
+        $texte = 'Plus de votes';
+        echo '3';
+        break;
+    case 2:
+        $okvote = true;
+        $longueur = 1;
+        $texte = '1 vote disponible';
+        echo '2';
+        break;
+    case 1:
+        $okvote = true;
+        $longueur = 2;
+        $texte = '2 votes disponibles';
+        echo '1';
+        break;
+    case 0:
+        $okvote = true;
+        $longueur = 3;
+        $texte = '3 votes disponibles';
+        echo '0';
+        break;
+}
+$req->closeCursor();
+
 $req = $bd->prepare("SELECT * FROM groupe
 NATURAL JOIN album
 NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
-WHERE nomStyleprincipal_StylePrincipal=:choix ");
+WHERE idStyleprincipal_StylePrincipal=:choix ");
 $req->execute(array(
     'choix' => $choix
 ));
 ?>
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#"><?php echo $choix; ?></a>
+        <p class="navbar-brand mb-0" href="#"><?php echo $name; ?></p>
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="./categories/" >Retour</a>
+                <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
             </li>
         </ul>
+        <p class="mb-0 ml-2"><?php echo $texte; ?></p>
     </nav>
 </header>
-<body class="position-absolute mt-sm-3 mt-5 pt-2">
-
-<?php
- echo '<br><br><br>';
- echo 'Display Name ='.$username.'<br>';
- echo 'login ='.$userlogin.'<br>';
- echo 'login ='.$userEmail.'<br>';
- echo 'IP ='.$ipUser.'<br>';
- echo 'ID ='.$userID.'<br>';
-?>
-
+<body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
-    <form action="/votes/" method="POST">
+    <form action="traitement_vote.php" method="POST">
         <div class="row">
             <?php 
             $compteur = 1;
@@ -65,12 +108,12 @@ $req->execute(array(
                 $idAlbum = $row['idAlbum_Album'];
             ?>
             <!-- div card de chaque groupe -->
-            <div class="media flex-column align-items-center align-md-left flex-md-row col-md-6">
+            <div class="media flex-column align-items-center align-md-left flex-md-row col-xl-4 col-md-6">
                 <!-- pochette de chaque groupe -->
                 <div>
                     <?php
                     if(empty($pochette)){?>
-                        <img src="img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
+                        <img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
                     <?php
                     } else {?>
                         <img src="<?php echo $pochette;?>" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">
@@ -84,7 +127,7 @@ $req->execute(array(
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($ipUser && $userEmail)){?>
+                    if(!empty($ipUser && $userEmail && $okvote)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -92,7 +135,7 @@ $req->execute(array(
                         <?php
                         } 
                         ?>
-                    <!-- div cache -->
+                    <!-- div cache sous le bouton -->
                     <div id="MonCollapse<?php echo $compteur ?>" class="collapse text-center text-md-left">
                         <a target="_blank" href="<?php echo $lienSite;?>"><button type="button" class="mb-2 btn btn-danger btn-md">Site du Groupe</button></a>
                     
@@ -141,13 +184,14 @@ $req->execute(array(
                 </div>
             </div>
             <?php
-            // bouton si connecte
-            if(!empty($ipUser && $userEmail)){?>
-                <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
-            <?php
-            } 
             $compteur ++; 
-            } 
+            };
+            // bouton si connecte
+            if(!empty($ipUser && $userEmail && $okvote)){?>
+                <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
+                <p><?php echo $texte;?></p>
+            <?php
+            };
             $req -> closeCursor();
             ?>
         </div>

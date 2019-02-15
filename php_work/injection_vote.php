@@ -6,7 +6,7 @@ require '../php/pdo.php';
 // $userEmail= $user->user_email;
 $title = 'Validation de vos votes';
 ob_start();
-$idMembre = 5;
+$idMembre = 8;
 $vote = array($_POST["idAlbum1"]);
 if (!empty($_POST["idAlbum2"])){
     $vote = array($_POST["idAlbum1"], $_POST["idAlbum2"]);
@@ -33,10 +33,10 @@ foreach ($vote as $key => $value) {
         NATURAL JOIN album
         NATURAL JOIN groupe
         NATURAL JOIN wp_users
-        WHERE idAlbum_Album=:premiervote
-        AND idMembre_membre=:idMembre");
+        WHERE idAlbum_Album=:vote
+        AND ID=:idMembre");
         $req->execute(array(
-            'premiervote' => $vote[$key],
+            'vote' => $vote[$key],
             'idMembre' => $idMembre
         ));
         $row=$req->fetch();

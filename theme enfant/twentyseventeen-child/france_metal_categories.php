@@ -1,24 +1,26 @@
 <?php /* Template Name: categories */ ?>
-<?php get_header(); ?>
-<?php
-require 'traitement_categorie.php';
+<?php get_header();
+
+$req = $bd ->prepare("SELECT * FROM styleprincipal");
+$req -> execute();
+
 $title = 'Categorie';
 ob_start();
 ?>
 <body>
-
 <!-- Card -->
     <div class="contenair">
         <div class="row justify-content-md-center">
         <?php
         $chaine = '';
         while ($row = $req->fetch()){
+            $idstyle = $row['idStylePrincipal_StylePrincipal'];
             $nomStyle = $row['nomStylePrincipal_StylePrincipal'];
             $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
             NATURAL JOIN styleprincipal
-            WHERE nomStylePrincipal_StylePrincipal = :test");
+            WHERE nomStylePrincipal_StylePrincipal = :idstyle");
             $req2->execute(array(
-                'test' => $nomStyle
+                'idstyle' => $idstyle
             ));
             while ($row2 = $req2->fetch()){
                 $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
