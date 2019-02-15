@@ -1,0 +1,39 @@
+/* .cadre_info_categorie{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+body {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.card {
+    background-color: black;
+    color: white;
+}
+
+.row{
+    width: 100%;
+    margin: 0;
+}
+.btn_valid{
+    z-index: 2000;
+    right: 10px;
+    top: 10px;
+}
+@media screen and (max-width :575px){
+    .btn_valid{
+        top :104px;
+    }
+}
+
+.nav-wrapper {
+    background-color: red;
+}
+
+#site-navigation {
+    background-color: red;
+}

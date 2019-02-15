@@ -1,0 +1,19 @@
+.cadre_info_categorie{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.card {
+    background-color: black;
+    color: white;
+}
+
+.nav-wrapper {
+    background-color: red;
+}
