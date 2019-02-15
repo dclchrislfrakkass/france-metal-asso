@@ -32,6 +32,7 @@ foreach ($vote as $key => $value) {
         $req=$bd->prepare("SELECT * FROM a_voté_pour
         NATURAL JOIN album
         NATURAL JOIN groupe
+        NATURAL JOIN wp_users
         WHERE idAlbum_Album=:premiervote
         AND idMembre_membre=:idMembre");
         $req->execute(array(
