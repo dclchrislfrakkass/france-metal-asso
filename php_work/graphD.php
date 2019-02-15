@@ -9,58 +9,21 @@ $annee = (date('Y')) -1;
 $vcount = 1;
 
 
-$result = $bd->prepare("SELECT nomGroupe_Groupe, note_Album FROM groupe
+$result = $bd->prepare("SELECT nomStylePrincipal_StylePrincipal, SUM(note_Album) AS compteur FROM groupe
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
 NATURAL JOIN a_voté_pour
-GROUP BY nomGroupe_Groupe
-ORDER BY note_Album DESC LIMIT 10");
+GROUP BY nomStylePrincipal_StylePrincipal
+ORDER BY note_Album DESC");
 $result -> execute();
 
 
-
-
-//////////////1
-$rt = $result->fetchAll();
-/////////////1
-
-
-
-// $ioi =$result['nomAlbum_Album'];
-// $array= array(
-//     'nom'=> $ioi);
-
-// var_dump($result);
-
-
-
-///////////////////////2
-// class topVote {
-    
-// }
-
-
-// $rt = $result->fetchAll(PDO::FETCH_CLASS, "topVote" );
-
-// print_r($rt);
-
-// $json_data = json_encode($rt);
-// file_put_contents('myfile.json', $json_data);
-
-
-////////////////////////////2
-
 echo '<br>';echo '<br>';
 // print_r($rt);
 echo '<br>';echo '<br>';
 
 
-
-echo '<br>';
-print_r($rt[0]);echo '<br>';
-print_r($rt[3]);echo '<br>';
-print_r($rt[8]);echo '<br>';
 
 // echo $rt[1];
 
@@ -75,33 +38,6 @@ print_r($rt[8]);echo '<br>';
 
 <div id="container" style="min-width: 310px; height: 600px; max-width: 900px; margin: 0 auto"></div>
 
-<?php
-$json =file_get_contents('myfile.json');
-$dec=json_decode($json, true);
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,7 +49,7 @@ chart: {
     plotShadow: false
 },
 title: {
-    text: 'Top 10 <br>Votes<br><?=$annee?>',
+    text: 'Top <br>Votes<br><?=$annee?>',
     align: 'center',
     verticalAlign: 'middle',
     y: 40
@@ -142,14 +78,18 @@ series: [{
     name: 'Top 10 Votes',
     innerSize: '50%',
     data: [
-    ['The Dead Years', 12],
-    ['A Wake Up Nightmare', 10],
-    ['The Diving Mask', 6],
-    ['Agony', 6],
-    ['Album 17', 6],
+        <?php 
+    while($row = $result->fetch()){
+        echo "['".$row['nomStylePrincipal_StylePrincipal']."', ".$row['compteur']."],";
+    } ?>
+    // ['The Dead Years', 12],
+    // ['A Wake Up Nightmare', 10],
+    // ['The Diving Mask', 6],
+    // ['Agony', 6],
+    // ['Album 17', 6],
     {
         name: 'Autres',
-        y: 20,
+        y: 0,
         dataLabels: {
         enabled: false
         }

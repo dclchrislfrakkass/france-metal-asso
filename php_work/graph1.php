@@ -1,7 +1,7 @@
 <?php
 // Appel conexion a la base
 require '../php/pdo.php';
-$title = 'Graph';
+$title = 'Graph1';
 
 
 
@@ -14,12 +14,7 @@ NATURAL JOIN a_voté_pour
 GROUP BY nomGroupe_Groupe
 ORDER BY note_Album DESC LIMIT 10");
 
-    
-// while($row = $result->fetchAll()){
-//     var_dump($row);
 
-//     echo "['".$row['nomGroupe_Groupe']."', ".$row['note_Album']."],";
-// }
 // ?>
 
 
@@ -27,7 +22,7 @@ ORDER BY note_Album DESC LIMIT 10");
 <html lang="fr">
 <head>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart" style="width: 700px; height: 600px;"></div>
 
 <script>
 
@@ -51,7 +46,10 @@ function drawChart() {
     ]);
 
     var options = {
-    title: 'My Daily Activities'
+    title: 'Top 10 des votes',
+    backgroundColor: 'black',
+    is3D: true,
+    legend: {textStyle: {color: 'white', fontSize: 16}}
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -60,17 +58,16 @@ function drawChart() {
 }
 
 </script>
-
+<link rel="stylesheet" href="stylechart.css">
 
 
 
 </head>
 
-
-
 <body>
     <!-- Display the pie chart -->
     <div id="piechart"></div>
+
 
 </body>
 </html>
