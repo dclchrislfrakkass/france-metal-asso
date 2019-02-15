@@ -21,7 +21,7 @@ $row=$req->fetch();
 $name = $row['nomStylePrincipal_StylePrincipal'];
 $req->closeCursor();
 
-$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM membre
+$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM wp_users
 NATURAL JOIN a_voté_pour
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
@@ -35,27 +35,30 @@ $req->execute(array(
 
 $row=$req->fetch();
 
-
 switch ($row['comptage']) {
     case 3:
         $okvote = false;
         $longueur = 0;
         $texte = 'Plus de votes';
+        echo '3';
         break;
     case 2:
         $okvote = true;
         $longueur = 1;
         $texte = '1 vote disponible';
+        echo '2';
         break;
     case 1:
         $okvote = true;
         $longueur = 2;
         $texte = '2 votes disponibles';
+        echo '1';
         break;
     case 0:
         $okvote = true;
         $longueur = 3;
         $texte = '3 votes disponibles';
+        echo '0';
         break;
 }
 $req->closeCursor();
