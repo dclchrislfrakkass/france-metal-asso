@@ -64,7 +64,7 @@ while ($row = $req->fetch()){
     $req2 = $bd->prepare("SELECT * FROM groupe
     NATURAL JOIN album
     NATURAL JOIN a_voté_pour
-    NATURAL JOIN membre
+    NATURAL JOIN wp_users
     WHERE idAlbum_Album = :idalbum
     ORDER BY note_Album DESC");
     $req2->execute(array(
