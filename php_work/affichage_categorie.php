@@ -1,7 +1,12 @@
 <?php
-require 'traitement_categorie.php';
+// Appel connexion a la base
+require '../php/pdo.php';
+$req = $bd ->prepare("SELECT * FROM styleprincipal");
+$req -> execute();
+
 $title = 'Categorie';
 ob_start();
+
 ?>
 <body>
 <!-- Card -->
@@ -14,9 +19,9 @@ ob_start();
             $nomStyle = $row['nomStylePrincipal_StylePrincipal'];
             $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
             NATURAL JOIN styleprincipal
-            WHERE idStylePrincipal_StylePrincipal = :test");
+            WHERE idStylePrincipal_StylePrincipal = :idstyle");
             $req2->execute(array(
-                'test' => $idstyle
+                'idstyle' => $idstyle
             ));
             while ($row2 = $req2->fetch()){
                 $chaine = $row2['nomStyleSecondaire_StyleSecondaire']." ".$chaine;
@@ -25,7 +30,7 @@ ob_start();
             <div class="card col-sm-12 col-md-6 col-xl-4"> 
                 <!-- Card image -->
                 <div class="view overlay">
-                    <a href="./affichage_groupes.php?nom=<?php echo $nomStyle;?>"><img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap"></a>
+                    <a href="./affichage_groupes.php?id=<?php echo $idstyle;?>"><img class="card-img-top" src="<?php echo $row['illustration'];?>" alt="Card image cap"></a>
                     <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>

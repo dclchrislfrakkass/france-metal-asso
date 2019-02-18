@@ -1,10 +1,12 @@
 <?php /* Template Name: categories */ ?>
 <?php get_header();
-require 'pdo.php';
+// Appel connexion a la base
+require '../php/pdo.php';
 $req = $bd ->prepare("SELECT * FROM styleprincipal");
 $req -> execute();
 $title = 'Categorie';
 ob_start();
+
 ?>
 <body>
 <!-- Card -->

@@ -11,7 +11,7 @@ $title = 'Groupes';
 ob_start();
 $choix = $_GET['id'];
 
-$idmembre = 8;
+$idmembre = '';
 $req=$bd->prepare("SELECT * FROM styleprincipal
 WHERE idStyleprincipal_StylePrincipal=:choix");
 $req->execute(array(
@@ -39,25 +39,21 @@ switch ($row['comptage']) {
         $okvote = false;
         $longueur = 0;
         $texte = 'Plus de votes';
-        echo '3';
         break;
     case 2:
         $okvote = true;
         $longueur = 1;
         $texte = '1 vote disponible';
-        echo '2';
         break;
     case 1:
         $okvote = true;
         $longueur = 2;
         $texte = '2 votes disponibles';
-        echo '1';
         break;
     case 0:
         $okvote = true;
         $longueur = 3;
         $texte = '3 votes disponibles';
-        echo '0';
         break;
 }
 $req->closeCursor();
@@ -80,7 +76,12 @@ $req->execute(array(
                 <a class="nav-link" href="./affichage_categorie.php" >Retour</a>
             </li>
         </ul>
-        <p class="mb-0 ml-2"><?php echo $texte; ?></p>
+        <?php
+          if (!empty($ipUser)) {?>
+            <p class="mb-0 ml-2"><?php echo $texte; ?></p>
+        <?php
+          }
+        ?>
     </nav>
 </header>
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
