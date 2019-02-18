@@ -92,5 +92,10 @@ while ($row = $req->fetch()){
 <?php
 $req ->closeCursor();
 $req7 ->closeCursor();
-
 include './traitement_votes.php';
+
+$content = ob_get_clean();
+require './template.php';
+
+
+
