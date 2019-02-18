@@ -9,11 +9,7 @@ ob_start();
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <ul class="navbar-nav">
             <li class="nav-item">
-<<<<<<< HEAD:theme enfant/twentyseventeen-child/france_metal_votes.php
                 <a class="nav-link" href="./categories/">Annuler et retourner aux Catégories</a>
-=======
-                <a class="nav-link" href="./affichage_categorie.php">Annuler et retourner aux atégories</a>
->>>>>>> 18f88fb94314677093b01ebd91236be3fb3022e3:theme enfant/twentyseventeen-child/traitement_vote.php
             </li>
         </ul>
     </nav>
@@ -42,11 +38,7 @@ ob_start();
                     $row = $req->fetch();
                   
                     if(empty($row['pochette'])){
-<<<<<<< HEAD:theme enfant/twentyseventeen-child/france_metal_votes.php
                         $pochette = '<img src="img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
-=======
-                        $pochette = '<img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
->>>>>>> 18f88fb94314677093b01ebd91236be3fb3022e3:theme enfant/twentyseventeen-child/traitement_vote.php
                     } else {
                         $pochette = '<img src="'.$row['pochette'].'" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
                     }
