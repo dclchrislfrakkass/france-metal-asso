@@ -12,15 +12,32 @@ $voteTotal = $req7->fetch();
 <?php
 echo "<div class='row align-items-end '>";
 echo "<div class='col-sm-12 col-md-6 col-lg-4 '>";
+echo "<h3 class='text-center'> Par catégories</h3>";
 include 'graph2.php';
 echo "</div>";
 echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
+echo "<h3 class='text-center'> Top 10 des groupes</h3>";
 include 'graph1.php';
 echo "</div>";
+echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
+echo "<h3 class='text-center'> Top 10 par styles</h3>";
+include 'graph3.php';
+echo "</div>";
 echo "</div>";
 
-?>
 
+
+
+
+
+
+
+
+
+
+
+?>
+<hr style="border: 10px solid white";>
 <h2 class="text-center">Les 3 groupes ayant le plus de votes</h2>
 <h2 class="text-center">Votes Total : <?=$voteTotal['count(*)']?></h2>
 

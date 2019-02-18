@@ -53,7 +53,7 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
                     echo "<p><strong> TOP ".$tcount."</strong>";
                     echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
                     echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";
-                    echo "<p><strong> Nombre de vote : </strong>".$row['note_Album']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
+                    echo "<p><strong> Nombre de votes : </strong>".$row['note_Album']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
                     echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p><br>";
                     
                     $tcount ++;

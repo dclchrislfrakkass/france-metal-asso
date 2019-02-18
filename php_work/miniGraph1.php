@@ -1,18 +1,19 @@
 <?php
 // Appel conexion a la base
 require '../php/pdo.php';
-$title = 'Graph2';
+$title = 'Mini1';
 
 
 
 // Get data from database
-$result = $bd->query("SELECT nomStylePrincipal_StylePrincipal, SUM(note_Album) AS compteur FROM groupe
+$result = $bd->query("SELECT idStylePrincipal_StylePrincipal, nomStylesecondaire_StyleSecondaire, SUM(note_Album) AS compteur FROM groupe
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
 NATURAL JOIN a_voté_pour
-GROUP BY nomStylePrincipal_StylePrincipal
-ORDER BY note_Album DESC");
+WHERE idStylePrincipal_StylePrincipal = 1
+GROUP BY nomStylesecondaire_StyleSecondaire
+ORDER BY note_Album DESC LIMIT 5");
 
 
 // ?>
@@ -36,7 +37,7 @@ function drawChart() {
     ['Groupe', 'Votes'],
     <?php 
     while($row = $result->fetch()){
-        echo "['".$row['nomStylePrincipal_StylePrincipal']."', ".$row['compteur']."],";
+        echo "['".$row['nomStylesecondaire_StyleSecondaire']."', ".$row['compteur']."],";
     } ?>
 
     ]);
