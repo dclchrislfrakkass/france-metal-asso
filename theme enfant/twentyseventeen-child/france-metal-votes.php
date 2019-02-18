@@ -1,7 +1,7 @@
 <?php /* Template Name: votes */ ?>
 <?php
 // Appel connexion a la base
-require 'pdo.php';
+require '../php/pdo.php';
 $title = 'Votes';
 ob_start();
 ?>
@@ -9,7 +9,7 @@ ob_start();
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./categories/">Retour aux Catégories</a>
+                <a class="nav-link" href="./affichage_categorie.php">Annuler et retourner aux catégories</a>
             </li>
         </ul>
     </nav>
@@ -18,12 +18,12 @@ ob_start();
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
         <?php
         ?>
-        <form method="POST" action="/injectvotes/">
+        <form method="POST" action="./injection_vote.php">
             <?php
             if(empty($_POST["idAlbum"])) {
                 echo '<h3>Vous n\'avez pas sélectionné de groupes</h3>';
             } elseif (!empty($_POST["idAlbum"])){
-                echo '<h3 class="mb-3">Vous avez voté pour:</h3>';
+                echo '<h3 class="mb-3">Vous voulez voter pour:</h3>';
                 ?>
                 <div class="row">
                 <?php
@@ -36,20 +36,26 @@ ob_start();
                         'idAlbum' => $check
                     ));
                     $row = $req->fetch();
+                  
+                    if(empty($row['pochette'])){
+                        $pochette = '<img src="../img/Image-Not-Found.png" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
+                    } else {
+                        $pochette = '<img src="'.$row['pochette'].'" class="ml-sm-3 mr-sm-3 mb-2 mb-sm-none" style="width:95px">';
+                    }
                     echo '<div class="col12 col-md-4">
                     <h4>'.$row['nomGroupe_Groupe'].'</h4>
-                    <img src="'.$row['pochette'].'"class="mb-2" style="width:95px">
+                    '.$pochette.'
                     <input type="hidden" name="idAlbum'.$compteur.'" value="'.$row['idAlbum_Album'].'">
                     </div>';
                     $compteur++;
                 }
                 ?>
                 </div>
+                <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos votes</button>
                 <?php
             } 
             ?>
-        <button type="submit" class="btn btn-danger btn-md mt-3 mx-auto">Validez vos choix</button>
         </form>
         <?php
 $content = ob_get_clean();
-require 'template.php';
+require './template.php';
