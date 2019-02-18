@@ -1,8 +1,15 @@
 <?php /* Template Name: categories */ ?>
 <?php get_header();
+<<<<<<< HEAD
 require 'pdo.php';
 $req = $bd ->prepare("SELECT * FROM styleprincipal");
 $req -> execute();
+=======
+
+$req = $bd ->prepare("SELECT * FROM styleprincipal");
+$req -> execute();
+
+>>>>>>> 18f88fb94314677093b01ebd91236be3fb3022e3
 $title = 'Categorie';
 ob_start();
 ?>
@@ -17,7 +24,11 @@ ob_start();
             $nomStyle = $row['nomStylePrincipal_StylePrincipal'];
             $req2 = $bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
             NATURAL JOIN styleprincipal
+<<<<<<< HEAD
             WHERE idStylePrincipal_StylePrincipal = :idstyle");
+=======
+            WHERE nomStylePrincipal_StylePrincipal = :idstyle");
+>>>>>>> 18f88fb94314677093b01ebd91236be3fb3022e3
             $req2->execute(array(
                 'idstyle' => $idstyle
             ));

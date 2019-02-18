@@ -11,7 +11,7 @@ $title = 'Groupes';
 ob_start();
 $choix = $_GET['id'];
 
-$idmembre = 5;
+$idmembre = 8;
 $req=$bd->prepare("SELECT * FROM styleprincipal
 WHERE idStyleprincipal_StylePrincipal=:choix");
 $req->execute(array(
@@ -21,12 +21,12 @@ $row=$req->fetch();
 $name = $row['nomStylePrincipal_StylePrincipal'];
 $req->closeCursor();
 
-$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM membre
-NATURAL JOIN a_voté_pour
+$req = $bd->prepare("SELECT *, COUNT(*) AS comptage FROM a_voté_pour
+NATURAL JOIN wp_users
 NATURAL JOIN album
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
-WHERE idMembre_membre=:idmembre
+WHERE ID=:idmembre
 AND idStyleprincipal_StylePrincipal=:choix");
 $req->execute(array(
     'idmembre' => $idmembre,
@@ -34,28 +34,30 @@ $req->execute(array(
 ));
 
 $row=$req->fetch();
-
-
 switch ($row['comptage']) {
     case 3:
         $okvote = false;
         $longueur = 0;
         $texte = 'Plus de votes';
+        echo '3';
         break;
     case 2:
         $okvote = true;
         $longueur = 1;
         $texte = '1 vote disponible';
+        echo '2';
         break;
     case 1:
         $okvote = true;
         $longueur = 2;
         $texte = '2 votes disponibles';
+        echo '1';
         break;
     case 0:
         $okvote = true;
         $longueur = 3;
         $texte = '3 votes disponibles';
+        echo '0';
         break;
 }
 $req->closeCursor();
@@ -184,7 +186,6 @@ $req->execute(array(
             // bouton si connecte
             if(!empty($ipUser && $userEmail && $okvote)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
-                <p><?php echo $texte;?></p>
             <?php
             };
             $req -> closeCursor();
