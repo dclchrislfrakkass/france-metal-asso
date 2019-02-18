@@ -5,14 +5,8 @@ $row = $requetestyle->fetch();
 $NBID = $row['NBID'];
 echo "<div class='row'>";
 
-<<<<<<< HEAD
-for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
-    
-        // var_dump($req10);
-=======
     for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
        
->>>>>>> 9ea74a5c9471cc6a2fb05a25b8540b6551c878d5
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
         WHERE idStyleprincipal_StylePrincipal=:ccount
         ");
@@ -70,8 +64,4 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
             echo "</div>";
         }
         echo "</div>";
-        // echo "</div>";
-        $content = ob_get_clean();
-        require './template.php';
-        ?>
         
