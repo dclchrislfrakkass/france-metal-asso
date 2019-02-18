@@ -1,0 +1,7 @@
+nombre d'album -> SELECT COUNT(*) FROM album
+
+nombre de style secondaire -> SELECT COUNT(DISTINCT idStyleSecondaire_StyleSecondaire) FROM stylesecondaire
+
+nombre de style principal -> SELECT COUNT(DISTINCT idStylePrincipal_StylePrincipal) FROM styleprincipal
+
+nombre de membre -> SELECT COUNT(*) FROM membre

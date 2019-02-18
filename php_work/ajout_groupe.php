@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Appel conexion a la base
+// Appel connexion a la base
 require '../php/pdo.php';
 
 // Recuperation des styles principaux:
@@ -59,7 +59,7 @@ $req -> closeCursor();
 
 // // Insertion des infos dans la table titre:
 
-$lienClip = 'lien ddu ou des clip titre';
+$lienClip = 'lien du ou des clip titre';
 $lienTitre ='lien ecoute du ou des titre';
 
 $query = $bdd->prepare("INSERT INTO titre (clip_Titre, lienEcouteTitre_Titre) VALUES (:clipTitre, :lienTitre)");
