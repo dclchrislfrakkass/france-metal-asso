@@ -87,6 +87,15 @@ $voteTotal = $req7->fetch();
 $req ->closeCursor();
 $req7 ->closeCursor();
 include './traitement_votes.php';
+<<<<<<< HEAD
 $content = ob_get_clean();
 require './template.php';
 ?>
+=======
+
+$content = ob_get_clean();
+require './template.php';
+
+
+
+>>>>>>> 269a9ff4ab7d76573777c480cc31368aa2229740

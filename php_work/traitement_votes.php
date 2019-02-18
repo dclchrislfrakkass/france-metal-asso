@@ -5,8 +5,14 @@ $row = $requetestyle->fetch();
 $NBID = $row['NBID'];
 echo "<div class='row'>";
 
+<<<<<<< HEAD
     for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
        
+=======
+for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
+    
+        // var_dump($req10);
+>>>>>>> 269a9ff4ab7d76573777c480cc31368aa2229740
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
         WHERE idStyleprincipal_StylePrincipal=:ccount
         ");
@@ -64,4 +70,9 @@ echo "<div class='row'>";
             echo "</div>";
         }
         echo "</div>";
+<<<<<<< HEAD
+=======
+
+        ?>
+>>>>>>> 269a9ff4ab7d76573777c480cc31368aa2229740
         
