@@ -9,11 +9,6 @@ ob_start();
 ?>
 
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
-
-
 <body class="position-absolute mt-sm-3 mt-5 pt-2">
     <h1 class="text-center"> Insertion dans la base de données de nouvelles entrées</h1>
     <div class="mt-5 mt-sm-none contenair position-relative">
