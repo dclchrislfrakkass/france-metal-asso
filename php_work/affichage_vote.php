@@ -70,13 +70,35 @@ $voteTotal = $req7->fetch();
         $req2->execute(array(
             'idalbum' => $row['idAlbum_Album']
         ));?>
-        <div class='col-sm-12 col-md-6 col-lg-4'>
-        <img class='mb-4' src="<?php echo $row["pochette"]; ?>" style="width:90%">
-        <p><strong> Nom du Groupe : </strong>"<?php echo $row['nomGroupe_Groupe']; ?></p>
-        <p><strong> Nom de l'album : </strong><?php echo $row['nomAlbum_Album']; ?></p>
-        <p><strong> Nombre de vote : </strong><?php echo $row['note_Album']; ?></p>
-        <p><strong> Style : </strong><?php echo $row['nomStyleSecondaire_StyleSecondaire']; ?></p>
-        <p><strong> Catégorie : </strong><?php echo $row['nomStylePrincipal_StylePrincipal']; ?></p>
+        <div class='col-sm-12 col-lg-6 col-xl-4 d-flex flex-column align-items-center'>
+            <img class='mb-4' src="<?php echo $row["pochette"]; ?>" style="width:70%">
+            <div class="d-flex flex-column">
+                <div class="d-flex">
+                    <p class="col-5 p-0"><span class="font-weight-bold">Nom du Groupe</span></p>
+                    <p class="col-1 p-0">:</p>
+                    <p class="col-6 p-0"><span class="text-primary"><?php echo $row['nomGroupe_Groupe']; ?></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="col-5 p-0"><span class="font-weight-bold">Nom de l'album</span></p>
+                    <p class="col-1 p-0">:</p>
+                    <p class="col-6 p-0"><span class="text-primary"><?php echo $row['nomAlbum_Album']; ?></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="col-5 p-0"><span class="font-weight-bold">Nombre de vote</span></p>
+                    <p class="col-1 p-0">:</p>
+                    <p class="col-6 p-0"><span class="text-primary"><?php echo $row['note_Album']; ?></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="col-5 p-0"><span class="font-weight-bold">Style</span></p>
+                    <p class="col-1 p-0">:</p>
+                    <p class="col-6 p-0"><span class="text-primary"><?php echo $row['nomStyleSecondaire_StyleSecondaire']; ?></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="col-5 p-0"><span class="font-weight-bold">Catégorie</span></p>
+                    <p class="col-1 p-0">:</p>
+                    <p class="col-6 p-0"><span class="text-primary"><?php echo $row['nomStylePrincipal_StylePrincipal']; ?></span></p>
+                </div>
+            </div>
         </div>
     <?php
     }
@@ -87,15 +109,6 @@ $voteTotal = $req7->fetch();
 $req ->closeCursor();
 $req7 ->closeCursor();
 include './traitement_votes.php';
-<<<<<<< HEAD
 $content = ob_get_clean();
 require './template.php';
 ?>
-=======
-
-$content = ob_get_clean();
-require './template.php';
-
-
-
->>>>>>> 269a9ff4ab7d76573777c480cc31368aa2229740
