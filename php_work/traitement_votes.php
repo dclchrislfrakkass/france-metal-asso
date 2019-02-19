@@ -3,22 +3,20 @@ $requetestyle = $bd -> prepare("SELECT count(idStyleprincipal_StylePrincipal) AS
 $requetestyle -> execute();
 $row = $requetestyle->fetch();
 $NBID = $row['NBID'];
-echo "<div class='row'>";
+echo "<div class='row w-100 flex-column flex-lg-row align-items-center'>";
 
-for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
-    
-        // var_dump($req10);
+    for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
+       
         $requetephoto = $bd->prepare("SELECT * FROM styleprincipal
-        WHERE idStyleprincipal_StylePrincipal=:ccount
-        ");
+        WHERE idStyleprincipal_StylePrincipal=:ccount");
         $requetephoto-> execute(array(
             'ccount' => $ccount
         ));
         $row = $requetephoto->fetch();
-        
-        echo "<div class='col-sm-12 col-md-6 col-lg-4'>";
-        echo "<img src='".$row["illustration"]."' style='width:80%;'>";
-
+        ?>
+        <div class="col-sm-12 col-lg-6 col-xl-4 d-flex flex-column align-items-center">
+            <img src='<?php echo $row["illustration"]; ?>' class="mt-5" style='width:70%'>
+        <?php
         $req = $bd->prepare("SELECT * FROM groupe
         NATURAL JOIN album
         NATURAL JOIN stylesecondaire
@@ -32,9 +30,10 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
         ));
         $row = $req->fetch();
 
-        if(empty($row['note_Album'])){
-                echo '<p>Aucun vote dans cette catégorie</p>';
-                echo "</div>";
+        if(empty($row['note_Album'])){?>
+                <p>Aucun vote dans cette catégorie</p>
+                </div>
+                <?php
             } else {
                 $req = $bd->prepare("SELECT * FROM groupe
                 NATURAL JOIN album
@@ -48,23 +47,39 @@ for ($ccount = 1 ; $ccount <= intval($NBID) ; $ccount++ ){
                     'ccount' => $ccount
                 ));
                 $tcount = 1;
-                while (!empty($row = $req->fetch())){
-                    echo "<p><strong> TOP ".$tcount."</strong>";
-                    echo "<p><strong> Nom du Groupe : </strong>".$row['nomGroupe_Groupe']."</p>";
-                    echo "<p><strong> Nom de l'album : </strong>".$row['nomAlbum_Album']."</p>";
-                    echo "<p><strong> Nombre de votes : </strong>".$row['note_Album']."</p>"; // remplacer plus tard le vote total par le vote total de sa catégorie
-                    echo "<p><strong> Style : </strong>".$row['nomStyleSecondaire_StyleSecondaire']."</p><br>";
-                    
+                while (!empty($row = $req->fetch())){?>
+                    <div class="col-12">
+                        <div class="row d-flex flex-column">
+                            <p class="mt-4 mx-auto"><span class="font-weight-bold text-danger"> TOP <?php echo $tcount; ?></span>
+                            <div class="d-flex text-left">
+                                <p class="col-5 p-0 m-0 font-weight-bold p-0">Nom du groupe</p>
+                                <p class="col-1 p-0 m-0">:</p>
+                                <p class="col-6 p-0 m-0 text-primary"><?php echo $row['nomGroupe_Groupe']; ?></p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="col-5 p-0 m-0 font-weight-bold">Nom de l'album </p>
+                                <p class="col-1 p-0 m-0">:</p>
+                                <p class="col-6 p-0 m-0 text-primary"><?php echo $row['nomAlbum_Album']; ?></p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="col-5 p-0 m-0 font-weight-bold">Nombre de votes</p>
+                                <p class="col-1 p-0 m-0">:</p>
+                                <p class="col-6 p-0 m-0 text-primary"><?php echo $row['note_Album']; ?></p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="col-5 p-0 m-0 font-weight-bold">Style</p>
+                                <p class="col-1 p-0 m-0">:</p>
+                                <p class="col-6 p-0 m-0 text-primary"><?php echo $row['nomStyleSecondaire_StyleSecondaire']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
                     $tcount ++;
-                    // echo "<p><strong> Pseudo des votants : </strong>".$chaine."</p><br>";
                 }
-                // echo "</div>";
             }
             $requetephoto->closeCursor();
             $req->closeCursor();
             echo "</div>";
-        }
+    }
         echo "</div>";
-
-        ?>
-        
+?>   
