@@ -2,6 +2,8 @@
 session_start();
 // Appel connexion a la base
 require '../php/pdo.php';
+$title = 'Ajout Bdd';
+ob_start();
 
 // Recuperation des styles principaux:
 ?>
@@ -62,122 +64,103 @@ require '../php/pdo.php';
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative">
 
-<form>
-    <fieldset style="width: 500px">
-        <legend>Choix pour les ajouts</legend>
-        <label>Style Principal</label>
-        <select name='styleP' id='styleP' onchange='go()'>
-            <option value='-1'>Aucun</option>
-            <?php
+
+    <form class="row d-flex justify-content-center">
+    <div class="form-row col-12 md-12 col-lg-8">
+        <div class="form-group col-md-6">
+            <label for="inputStyleP">Style Principal</label>
+            <select name='styleP' id='styleP' class="custom-select" onchange='go()'>
+                <option value='-1'>Aucun</option>
+                <?php
                
-               $req = $bd->query("SELECT * FROM styleprincipal");
-               while ($row = $req->fetch()){
-                  
+                $req = $bd->query("SELECT * FROM styleprincipal");
+                while ($row = $req->fetch()){
+                   
                     echo "<option value='".$row['idStylePrincipal_StylePrincipal']."'>".$row['nomStylePrincipal_StylePrincipal']."</option>";
-                }
+                    }
                 
-            ?>
-            
-        </select>
-        <label>Style Secondaire</label>
-        <div id='styleS' style='display:inline'>
-        <select name='styleS'>
-            <option value='-1'>Choisir d'abord un style principal</option>
-        </select>
+                    ?>
+            </select>
+           
         </div>
-    </fieldset>
+        <div class="form-group col-md-6">
+            <label for="inputStyleS">Style Secondaire</label>
+            <div id='styleS'>
+            <select name='styleS' class="custom-select">
+                <option value='-1'>Choisir d'abord un style principal</option>
+            </select>
+        </div>
+    </div>
+                </div>
+        <div class="form-row col-12 md-12 col-lg-8">
+        <div class="form-group col-md-6">
+            <label for="inputNG">Nom du Groupe</label>
+            <input type="text" class="form-control" id="nomGroup" placeholder="Nom du Groupe">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputNA">Nom de l'album</label>
+            <input type="text" class="form-control" id="nomAlbum" placeholder="Nom de l'album">
+        </div>
+    </div>
+    <div class="form-row col-12 md-12 col-lg-8">
+        <div class="form-group col-md-6">
+            <label for="inputLabel">Label de l'album</label>
+            <input type="text" class="form-control" id="labelAlbum" placeholder="Label de l'album">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="photo">Photo du groupe / album</label>
+            <input type="text" class="form-control" id="photoAlbum" placeholder="Lien vers la photo">
+        </div>
+    </div>
+    <div class="form-row col-12 md-12 col-lg-8">
+            <div class="form-group col-md-6">
+                <label for="mail">Mail de contact</label>
+                <input type="email" class="form-control" id="mailContact" placeholder="Mail de contact">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="num">Numéro de téléphone</label>
+                <input type="number" class="form-control" id="numContact" placeholder="Numéro de contact">
+            </div>
+        </div>
+        <div class="form-row col-12 md-12 col-lg-8">
+                <div class="form-group col-md-6">
+                    <label for="inputLink">Lien du groupe</label>
+                    <input type="text" class="form-control" id="linkGroup" placeholder="Lien du groupe">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="listen1">Lien d'écoute 1</label>
+                    <input type="text" class="form-control" id="listen1" placeholder="Lien d'écoute 1">
+                </div>
+            </div>
+            <div class="form-row col-12 md-12 col-lg-8">
+                    <div class="form-group col-md-6">
+                        <label for="clip1">Lien du Clip 1</label>
+                        <input type="text" class="form-control" id="clip1" placeholder="Lien du Clip 1">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="listen2">Lien d'écoute 2</label>
+                        <input type="text" class="form-control" id="listen2" placeholder="Lien d'écoute 2">
+                    </div>
+                </div>
+                <div class="form-row col-12 md-12 col-lg-8">
+                        <div class="form-group col-md-6">
+                            <label for="clip2">Lien du Clip 2</label>
+                            <input type="text" class="form-control" id="clip2" placeholder="Lien du Clip 2">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listen3">Lien d'écoute 3</label>
+                            <input type="text" class="form-control" id="listen3" placeholder="Lien d'écoute 3">
+                        </div>
+                    </div>
+                   
+
+                </div>
+                <div class="row d-flex justify-content-center">
+    <button type="submit" class="btn btn-danger">Ajouter</button>
+    </div>   
 </form>
-</div> 
+
 <?php
-
-
-
-
-
-
-// echo '<form action="#" method="post">';
-// echo '<select id="styleP" name="style" size="1" class="liste">';
-// while ($row = $req->fetch()){
-//     echo '<option value="'.$row['nomStylePrincipal_StylePrincipal'].'">'.$row['nomStylePrincipal_StylePrincipal'].'</option>';
-// }
-// echo '</select>';
-// echo '<input type="submit" value="Valider"></form>';
-// $req -> closeCursor();
-
-// // Recuperation des style secondaires selon le style principale choisi:
-// $styleprincselect = 1;// style principale selectionner
-
-// $req=$bd->prepare("SELECT nomStyleSecondaire_StyleSecondaire FROM stylesecondaire
-// NATURAL JOIN stylePrincipal
-// WHERE idStylePrincipal_StylePrincipal = :styleprincselect ");
-// $req->execute(array(
-//     'styleprincselect' => $styleprincselect
-// ));
-// echo '<form action="#" method="post">';
-// echo '<select id="styleP" name="styleP" size="1" class="liste">';
-// while ($row = $req->fetch()){
-//     echo '<option value="'.$row['nomStyleSecondaire_StyleSecondaire'].'">'.$row['nomStyleSecondaire_StyleSecondaire'].'</option>';
-// }
-// echo '</select>';
-// echo '<input type="submit" value="Valider"></form>';
-// $req -> closeCursor();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Insertion des infos du groupe dans la table groupe:
-
-// $nomGroupe = 'Nom du groupe';
-// $lienSite = 'Lien du site ou page facebook du groupe';
-// $mail = 'mail du groupe';
-// $telephone = 'telephone du groupe';
-
-// $req = $bd->prepare("INSERT INTO groupe (nomGroupe_Groupe, lien_Groupe, mail_Groupe, telephone_Groupe) VALUES (:nomGroup, :lien, :mailGroupe, :telGroupe)");
-// $query->execute(array(
-//     'nomGroup'=> $nomGroup,
-//     'lien' => $lienSite,
-//     'mailGroupe' => $mail,
-//     'telGroupe' => $telephone
-// ));
-// $req -> closeCursor();
-
-// //  Insertion des infos dans la table album:
-
-// $nomAlbum ='nom de l album';
-// $dateSortie = 'date de sortie';
-// $label = 'label';
-
-// $req = $bd->prepare("INSERT INTO album (nomAlbum_Album, dateSortie_Album, label_Album) VALUES (:nomAlbum, :sortie, :label, :liens)");
-// $query->execute(array(
-//     'label' => $label,
-//     'nomAlbum'=>$nomAlbum,
-//     'sortie'=> $sortie
-// ));
-// $req -> closeCursor();
-
-// // // Insertion des infos dans la table titre:
-
-// $lienClip = 'lien du ou des clip titre';
-// $lienTitre ='lien ecoute du ou des titre';
-
-// $query = $bd->prepare("INSERT INTO titre (clip_Titre, lienEcouteTitre_Titre) VALUES (:clipTitre, :lienTitre)");
-// $query->execute(array(
-//     'clipTitre'=> $lienClip,
-//     'lienTitre' => $lienTitre
-// ));
-// $req -> closeCursor();
-
 
 $content = ob_get_clean();
 require './template.php';
