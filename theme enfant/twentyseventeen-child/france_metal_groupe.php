@@ -198,7 +198,6 @@ $req->execute(array(
             // bouton si connecte
             if(!empty($ipUser && $userEmail && $okvote)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
-                <p><?php echo $texte;?></p>
             <?php
             };
             $req -> closeCursor();
