@@ -25,7 +25,6 @@ foreach($csv as $ligne){
     $query->execute(array(
         'styleSec'=> $styleSec
     ));
-
     while ($donnees = $query->fetch()){
         $idStyle = $donnees['idStyleSecondaire_StyleSecondaire'];
         $query2 = $bd->prepare("UPDATE album SET idStyleSecondaire_StyleSecondaire =:idStyle where nomAlbum_Album = :nomAlbum");
