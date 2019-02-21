@@ -67,9 +67,27 @@ NATURAL JOIN titre
 NATURAL JOIN stylesecondaire
 NATURAL JOIN styleprincipal
 WHERE idStyleprincipal_StylePrincipal=:choix ");
+
 $req->execute(array(
     'choix' => $choix
 ));
+
+$reponse = $bd->prepare("SELECT COUNT(*) AS NbrGroupes FROM groupe 
+NATURAL JOIN album
+NATURAL JOIN titre
+NATURAL JOIN stylesecondaire
+NATURAL JOIN styleprincipal
+WHERE idStyleprincipal_StylePrincipal=:choix ");
+
+$reponse->execute(array(
+    'choix' => $choix
+));
+
+
+$NbrGroupes = $reponse->fetch();
+// $reponse->closeCursor();
+
+
 ?>
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -84,6 +102,9 @@ $req->execute(array(
             <p class="mb-0 ml-2"><?php echo $texte; ?></p>
         <?php
           }
+          
+          echo "&nbsp;&nbsp; Nombre de Groupe : ".$NbrGroupes['NbrGroupes'];
+
         ?>
     </nav>
 </header>
