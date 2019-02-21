@@ -98,3 +98,6 @@ require_once(ABSPATH . 'wp-settings.php');
 
 //   $_SESSION['test'] = 'test';
 // }
+
+// Forcer le HTTPS dans l'administration
+define('FORCE_SSL_ADMIN', true);

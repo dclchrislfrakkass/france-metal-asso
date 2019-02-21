@@ -1,0 +1,744 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: User Verification\n"
+"POT-Creation-Date: 2019-02-19 15:19+0100\n"
+"PO-Revision-Date: 2019-02-19 15:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: pickplugins <support@pickplugins.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: templates\n"
+"X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: templates\n"
+
+#: includes/classes/class-emails.php:65
+msgid "New User Registered"
+msgstr "Nouvel utilisateur enregistré"
+
+#: includes/classes/class-emails.php:66
+msgid "Notification email for admin when a new user is registered."
+msgstr ""
+"Courriel de notification à l'administrateur lorsqu'un nouvel utilisateur est "
+"enregistré."
+
+#: includes/classes/class-emails.php:67
+msgid "New User Submitted - {site_url}"
+msgstr "Nouvel utilisateur soumis - {site_url}"
+
+#: includes/classes/class-emails.php:75
+msgid "New User Confirmed"
+msgstr "Nouvel utilisateur confirmé"
+
+#: includes/classes/class-emails.php:76
+msgid "Notification email for confirming a new User."
+msgstr "Email de notification pour la confirmation d'un nouvel utilisateur."
+
+#: includes/classes/class-emails.php:77
+msgid "New User Confirmed - {site_url}"
+msgstr "Nouvel utilisateur confirmé - {site_url}"
+
+#: includes/classes/class-emails.php:86
+msgid "Resend Activation key"
+msgstr "Renvoyer la clé d'activation"
+
+#: includes/classes/class-emails.php:87
+msgid "Notification email for resend activation key."
+msgstr "Notification par courriel pour la réexpédition de la clé d'activation."
+
+#: includes/classes/class-emails.php:88
+msgid "Please verify account - {site_url}"
+msgstr "Activez votre compte - {site_url}"
+
+#: includes/classes/class-emails.php:114
+msgid "Site Parameters"
+msgstr "Paramètres du site"
+
+#: includes/classes/class-emails.php:119
+msgid "Users Parameters"
+msgstr "Paramètres Utilisateurs"
+
+#: includes/classes/class-settings.php:15
+msgid "General"
+msgstr "Général"
+
+#: includes/classes/class-settings.php:18
+msgid "Basic Settings"
+msgstr "Réglages de base"
+
+#: includes/classes/class-settings.php:19
+msgid "Some basic settings to get started"
+msgstr "Quelques réglages de base pour commencer"
+
+#: includes/classes/class-settings.php:23
+msgid "Choose verification page"
+msgstr "Choisir la page de vérification"
+
+#: includes/classes/class-settings.php:24
+msgid ""
+"Verification checker page where you place the shortcode "
+"<code>[user_verification_check]</code>, please create a page and use this "
+"shortcode uder post content."
+msgstr ""
+"Page de vérification de vérification où vous placez le shortcode "
+"<code>[user_verification_check]</code>, veuillez créer une page et utiliser "
+"ce shortcode pour poster du contenu."
+
+#: includes/classes/class-settings.php:30
+msgid "Redirect after verification"
+msgstr "Rediriger après vérification"
+
+#: includes/classes/class-settings.php:31
+msgid "Redirect to any page after successfully verified account."
+msgstr ""
+"Rediriger vers n'importe quelle page après avoir vérifié votre compte avec "
+"succès."
+
+#: includes/classes/class-settings.php:38
+msgid "Automatically login after verification"
+msgstr "Connexion automatique après vérification"
+
+#: includes/classes/class-settings.php:39
+msgid ""
+"Yes means, users click on the Account activation link from email and they "
+"login automatically to your website, No means they don't"
+msgstr ""
+"Oui signifie que les utilisateurs cliquent sur le lien d'activation de "
+"compte à partir du courriel et se connectent automatiquement à votre site "
+"Web, Non signifie qu'ils ne le font pas"
+
+#: includes/classes/class-settings.php:42
+#: includes/classes/class-settings.php:69
+#: includes/classes/class-settings.php:99
+#: includes/classes/class-settings.php:156
+#: includes/classes/class-settings.php:177
+#: includes/classes/class-settings.php:301
+#: includes/classes/class-settings.php:312
+#: includes/classes/class-settings.php:323
+#: includes/classes/class-settings.php:334
+#: includes/classes/class-settings.php:354
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:378 includes/functions.php:1807
+#: includes/functions.php:1817
+msgid "No"
+msgstr "Non"
+
+#: includes/classes/class-settings.php:43
+#: includes/classes/class-settings.php:70
+#: includes/classes/class-settings.php:100
+#: includes/classes/class-settings.php:157
+#: includes/classes/class-settings.php:178
+#: includes/classes/class-settings.php:302
+#: includes/classes/class-settings.php:313
+#: includes/classes/class-settings.php:324
+#: includes/classes/class-settings.php:335
+#: includes/classes/class-settings.php:355
+#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:379 includes/functions.php:1787
+#: includes/functions.php:1797
+msgid "Yes"
+msgstr "Oui"
+
+#: includes/classes/class-settings.php:49
+msgid "Exclude these user role to verification?"
+msgstr "Exclure ces rôles d'utilisateur à la vérification ?"
+
+#: includes/classes/class-settings.php:50
+msgid "You can exclude verification for these user roles"
+msgstr "Vous pouvez exclure la vérification pour ces rôles utilisateur"
+
+#: includes/classes/class-settings.php:60
+#: includes/classes/class-settings.php:343
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/classes/class-settings.php:61
+msgid "Integration for WooCommerce plugin"
+msgstr "Intégration pour le plugin WooCommerce"
+
+#: includes/classes/class-settings.php:65
+msgid "Disable auto login after registration on WooCommerce?"
+msgstr ""
+"Désactiver la connexion automatique après l'enregistrement sur WooCommerce ?"
+
+#: includes/classes/class-settings.php:66
+msgid ""
+"You can disable auto login after registration via WooCommerce register form. "
+"this also disable login on checkout page"
+msgstr ""
+"Vous pouvez désactiver la connexion automatique après l'enregistrement via "
+"le formulaire d'enregistrement de WooCommerce. Cela permet également de "
+"désactiver la connexion sur la page de paiement"
+
+#: includes/classes/class-settings.php:76
+msgid "Display Message after successfully registration"
+msgstr "Afficher le message après l'enregistrement réussi"
+
+#: includes/classes/class-settings.php:77
+msgid ""
+"You can display custom message on after successfully registration via "
+"WooCommerce register form."
+msgstr ""
+"Vous pouvez afficher un message personnalisé après l'enregistrement via le "
+"formulaire d'enregistrement de WooCommerce."
+
+#: includes/classes/class-settings.php:79
+msgid "Thanks for your registration, please follow email we sent."
+msgstr ""
+"Merci de votre inscription, veuillez suivre le courriel que nous vous avons "
+"envoyé."
+
+#: includes/classes/class-settings.php:90
+msgid "Paid Memberships Pro"
+msgstr "Adhésions payantes Pro"
+
+#: includes/classes/class-settings.php:91
+msgid "Integration for Paid Memberships Pro plugin"
+msgstr "Intégration pour les abonnements payants Plugin Pro"
+
+#: includes/classes/class-settings.php:95
+msgid "Disable auto login after checkout on Paid Memberships Pro?"
+msgstr ""
+"Désactiver la connexion automatique après la caisse sur les abonnements "
+"payants Pro ?"
+
+#: includes/classes/class-settings.php:96
+msgid ""
+"You can disable auto login after registration via Paid Memberships Pro "
+"checkout(register) form."
+msgstr ""
+"Vous pouvez désactiver la connexion automatique après l'enregistrement via "
+"le formulaire d'inscription payante Pro checkout(register)."
+
+#: includes/classes/class-settings.php:107
+msgid "Display message on checkout confirmation page"
+msgstr "Afficher le message sur la page de confirmation de commande"
+
+#: includes/classes/class-settings.php:108
+msgid "You can display custom message on checkout confirmation page."
+msgstr ""
+"Vous pouvez afficher un message personnalisé sur la page de confirmation de "
+"commande."
+
+#: includes/classes/class-settings.php:110
+msgid "We have sent a confirmation mail please follow to verify account first."
+msgstr "Nous avons envoyé un mail de confirmation pour vérifier votre compte."
+
+#: includes/classes/class-settings.php:115
+msgid "Automatically logout after second"
+msgstr "Déconnexion automatique après la seconde"
+
+#: includes/classes/class-settings.php:116
+msgid ""
+"After successfully checkout user will wait for few second to display the "
+"message and then redirect to another page. <br> 1000 = 1 second"
+msgstr ""
+"Après avoir passé la commande avec succès, l'utilisateur attendra quelques "
+"secondes avant d'afficher le message et de rediriger vers une autre page. "
+"<br> 1000 = 1 seconde"
+
+#: includes/classes/class-settings.php:118
+msgid "3000"
+msgstr "3000"
+
+#: includes/classes/class-settings.php:123
+msgid "Redirect to this page after checkout"
+msgstr "Rediriger vers cette page après la validation de votre commande"
+
+#: includes/classes/class-settings.php:124
+msgid ""
+"You can set custom page to redirect and logout after few second passed, "
+"where user can see instruction what to do next to get verified."
+msgstr ""
+"Vous pouvez définir une page personnalisée pour rediriger et se déconnecter "
+"après quelques secondes passées, où l'utilisateur peut voir les instructions "
+"sur ce qu'il doit faire ensuite pour être vérifié."
+
+#: includes/classes/class-settings.php:144
+msgid "Protect Spam"
+msgstr "Protéger le spam"
+
+#: includes/classes/class-settings.php:147
+msgid "Protect Spam Settings"
+msgstr "Protéger les paramètres anti-spam"
+
+#: includes/classes/class-settings.php:148
+msgid "Protect your site from Spam"
+msgstr "Protégez votre site du spam"
+
+#: includes/classes/class-settings.php:152
+msgid "Enable blocking email domain on registration"
+msgstr "Activer le blocage du domaine de messagerie lors de l'enregistrement"
+
+#: includes/classes/class-settings.php:153
+msgid ""
+"You can enable email domain name blocking for spammy/temporary email account "
+"services"
+msgstr ""
+"Vous pouvez activer le blocage des noms de domaine de messagerie pour les "
+"services de comptes de messagerie temporaires/spammy."
+
+#: includes/classes/class-settings.php:163
+msgid "Blocked Domains"
+msgstr "Domaines bloqués"
+
+#: includes/classes/class-settings.php:164
+msgid "One domain per line. wihtout http:// or https:// or www"
+msgstr "Un domaine par ligne. Sans http:// ou https:// ou www."
+
+#: includes/classes/class-settings.php:166
+msgid "domain.com"
+msgstr "domain.com"
+
+#: includes/classes/class-settings.php:173
+msgid "Enable blocking username on registration."
+msgstr "Activer le blocage du nom d'utilisateur lors de l'enregistrement."
+
+#: includes/classes/class-settings.php:174
+msgid "User will not able to register blocked username, like admin, info, etc."
+msgstr ""
+"L'utilisateur ne pourra pas enregistrer le nom d'utilisateur bloqué, comme "
+"admin, info, etc."
+
+#: includes/classes/class-settings.php:184
+msgid "Blocked Usernames"
+msgstr "Noms d'utilisateur bloqués"
+
+#: includes/classes/class-settings.php:185
+msgid ""
+"You can following string match <ul><li><b>^username</b> : String start with "
+"<b><i>username</i></b></li><li><b>username$</b> : String end by "
+"<b><i>username</i></b></li><li><b>username</b> : String contain "
+"<b><i>username</i></b></b></li></ul>"
+msgstr ""
+"Vous pouvez suivre la chaîne de caractères <ul><li><li><b>^nomutilisateur</"
+"b> : Début de chaîne avec <b><i>nomutilisateur</i>i></b></li>li><li><b>nom "
+"utilisateur$</b> : Fin de chaîne par <b><i>nom d'utilisateur </i></i></b></"
+"li>>li><b>nom d'utilisateur </b> : La chaîne contient <b><i>nom "
+"d'utilisateur </i>i></b></b></b></li>/ul>"
+
+#: includes/classes/class-settings.php:187
+msgid "username"
+msgstr "nom d'utilisateur"
+
+#: includes/classes/class-settings.php:205
+msgid "Messages"
+msgstr "Messages"
+
+#: includes/classes/class-settings.php:208
+msgid "Custom Messages"
+msgstr "Messages personnalisés"
+
+#: includes/classes/class-settings.php:209
+msgid "Customize error messages"
+msgstr "Personnaliser les messages d'erreur"
+
+#: includes/classes/class-settings.php:214
+msgid "Invalid activation key"
+msgstr "Clé d'activation invalide"
+
+#: includes/classes/class-settings.php:215
+msgid "Show custom message when user activation key is invalid or wrong"
+msgstr ""
+"Afficher un message personnalisé lorsque la clé d'activation de "
+"l'utilisateur est invalide ou erronée"
+
+#: includes/classes/class-settings.php:217
+msgid "Sorry! Invalid activation key"
+msgstr "Désolé ! Clé d activation invalide"
+
+#: includes/classes/class-settings.php:221
+msgid "Activation key sent"
+msgstr "Clé d'activation envoyée"
+
+#: includes/classes/class-settings.php:222
+msgid "Show custom message when activation key is sent to user email"
+msgstr ""
+"Afficher un message personnalisé lorsque la clé d'activation est envoyée à "
+"l'utilisateur par courriel"
+
+#: includes/classes/class-settings.php:224
+msgid "Hey! You activation key has been sent to your mail"
+msgstr "Hé ! Votre clé d activation a été envoyée à votre mail"
+
+#: includes/classes/class-settings.php:229
+msgid "Verify email address"
+msgstr "Vérifier l'adresse e-mail"
+
+#: includes/classes/class-settings.php:230
+msgid ""
+"Show custom message when user try to login without verifying his/her email "
+"with proper activation key"
+msgstr ""
+"Afficher un message personnalisé lorsque l'utilisateur essaie de se "
+"connecter sans vérifier son email avec la clé d'activation appropriée"
+
+#: includes/classes/class-settings.php:232
+msgid "Please verify account first."
+msgstr "Veuillez d abord vérifier votre compte."
+
+#: includes/classes/class-settings.php:236
+msgid "Registration success message"
+msgstr "Message de succès d'enregistrement"
+
+#: includes/classes/class-settings.php:237
+msgid "User will get this message as soon as registered on your website"
+msgstr ""
+"L'utilisateur recevra ce message dès qu'il sera enregistré sur votre site "
+"web."
+
+#: includes/classes/class-settings.php:239
+msgid "Hey! Thanks for registration"
+msgstr "Hey ! Merci pour l inscription"
+
+#: includes/classes/class-settings.php:245
+msgid "Verification successful"
+msgstr "Vérification réussie"
+
+#: includes/classes/class-settings.php:246
+msgid "Show custom message when user successfully verified"
+msgstr ""
+"Afficher un message personnalisé lorsque l'utilisateur a réussi à le vérifier"
+
+#: includes/classes/class-settings.php:248
+msgid "Hey! Thanks for verification"
+msgstr "Hé ! Merci pour la vérification"
+
+#: includes/classes/class-settings.php:253
+msgid "Activation key Expired"
+msgstr "Clé d'activation Expirée"
+
+#: includes/classes/class-settings.php:254
+msgid "Show custom message when user activation key is expired"
+msgstr ""
+"Afficher un message personnalisé lorsque la clé d'activation de "
+"l'utilisateur est expirée"
+
+#: includes/classes/class-settings.php:256
+msgid "Hey! Your activation key has expired."
+msgstr "Hé ! Votre clé d activation a expiré."
+
+#: includes/classes/class-settings.php:261
+msgid "Captcha error message"
+msgstr "Message d'erreur Captcha"
+
+#: includes/classes/class-settings.php:262
+msgid "Show custom message when captcha error occurred"
+msgstr ""
+"Afficher un message personnalisé lorsque l'erreur captcha s'est produite"
+
+#: includes/classes/class-settings.php:264
+msgid "Sorry! You missed the Captcha or Wrong input."
+msgstr "Désolé ! Vous avez raté le Captcha ou fait une mauvaise entrée."
+
+#: includes/classes/class-settings.php:279
+msgid "reCAPTCHA"
+msgstr "reCAPTCHA"
+
+#: includes/classes/class-settings.php:282
+msgid "reCAPTCHA Settings"
+msgstr "reCAPTCHA Réglages"
+
+#: includes/classes/class-settings.php:283
+msgid "Protect your site by reCAPTCHA"
+msgstr "Protégez votre site par reCAPTCHA"
+
+#: includes/classes/class-settings.php:288
+msgid "reCAPTCHA sitekey"
+msgstr "reCAPTCHA sitekey"
+
+#: includes/classes/class-settings.php:289
+msgid ""
+"Google reCAPTCHA sitekey, please register here <a href=\"https://www.google."
+"com/recaptcha/\">https://www.google.com/recaptcha/</a>"
+msgstr ""
+"Google reCAPTCHA sitekey, veuillez vous enregistrer ici <a href=\"https://"
+"www.google.com/recaptcha/\">https://www.google.com/recaptcha/</a>"
+
+#: includes/classes/class-settings.php:297
+msgid "reCAPTCHA on default login page"
+msgstr "reCAPTCHA sur la page de connexion par défaut"
+
+#: includes/classes/class-settings.php:298
+msgid "Enable recaptcha on default login page"
+msgstr "Activer la recaptcha sur la page de connexion par défaut"
+
+#: includes/classes/class-settings.php:308
+msgid "reCAPTCHA on default registration page"
+msgstr "reCAPTCHA sur la page d'enregistrement par défaut"
+
+#: includes/classes/class-settings.php:309
+msgid "Enable recaptcha on default registration page"
+msgstr "Activer la recaptcha sur la page d'enregistrement par défaut"
+
+#: includes/classes/class-settings.php:319
+msgid "reCAPTCHA on default reset password page"
+msgstr "reCAPTCHA sur la page de réinitialisation par défaut du mot de passe"
+
+#: includes/classes/class-settings.php:320
+msgid "Enable recaptcha on default reset password page"
+msgstr ""
+"Activer la recaptcha sur la page de réinitialisation par défaut du mot de "
+"passe"
+
+#: includes/classes/class-settings.php:330
+msgid "reCAPTCHA on comment form"
+msgstr "reCAPTCHA sur la fiche de commentaires"
+
+#: includes/classes/class-settings.php:331
+msgid "Enable recaptcha on comment form"
+msgstr "Activer la recaptcha sur le formulaire de commentaire"
+
+#: includes/classes/class-settings.php:344
+msgid "Integration for WooCommerce"
+msgstr "Intégration pour WooCommerce"
+
+#: includes/classes/class-settings.php:350
+msgid "reCAPTCHA on WooCommerce login from"
+msgstr "reCAPTCHA sur WooCommerce se connecter à partir de"
+
+#: includes/classes/class-settings.php:351
+msgid "Enable reCAPTCHA on WooCommerce login from"
+msgstr "Activez reCAPTCHA sur le login WooCommerce à partir de"
+
+#: includes/classes/class-settings.php:361
+msgid "reCAPTCHA on WooCommerce register from"
+msgstr "reCAPTCHA sur le registre WooCommerce à partir de"
+
+#: includes/classes/class-settings.php:362
+msgid "Enable reCAPTCHA on WooCommerce register from"
+msgstr "Activer reCAPTCHA sur le registre WooCommerce à partir de"
+
+#: includes/classes/class-settings.php:374
+msgid "reCAPTCHA on WooCommerce lost password from"
+msgstr "reCAPTCHA sur WooCommerce a perdu le mot de passe de"
+
+#: includes/classes/class-settings.php:375
+msgid "Enable reCAPTCHA on WooCommerce lost password from"
+msgstr "Activer reCAPTCHA sur WooCommerce mot de passe perdu de"
+
+#: includes/classes/class-settings.php:398
+msgid "User Verification"
+msgstr "Vérification de l'utilisateur"
+
+#: includes/classes/class-settings.php:399
+#: includes/classes/class-settings.php:400
+#: includes/classes/class-settings.php:401
+msgid "User Verification - Settings"
+msgstr "Vérification utilisateur - Paramètres"
+
+#: includes/classes/class-settings.php:466
+#: includes/classes/class-settings.php:469
+#: includes/classes/class-settings.php:497
+msgid "Email Templates"
+msgstr "Modèles de courriel"
+
+#: includes/classes/class-settings.php:470
+msgid "You can customize email templates here."
+msgstr "Vous pouvez personnaliser les modèles de courriel ici."
+
+#: includes/classes/class-settings.php:475
+msgid "Emails Templates Settings"
+msgstr "Paramètres des modèles de courriels"
+
+#: includes/classes/class-settings.php:476
+#, php-format
+msgid "Emails Templates Options %s"
+msgstr "Modèles de courriels Options %s"
+
+#: includes/classes/class-settings.php:498
+#: includes/classes/class-settings.php:499
+msgid "User Verification - Email Templates"
+msgstr "Vérification de l'utilisateur - Modèles d'e-mail"
+
+#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:612
+msgid "Help"
+msgstr "Aide"
+
+#: includes/classes/class-settings.php:519
+msgid "Help & Support"
+msgstr "Aide & Support"
+
+#: includes/classes/class-settings.php:520
+msgid "Here is some question and answer for your quick help."
+msgstr "Voici quelques questions et réponses pour votre aide rapide."
+
+#: includes/classes/class-settings.php:525
+msgid "Frequently Asked Question"
+msgstr "Foire aux questions"
+
+#: includes/classes/class-settings.php:526
+msgid ""
+"If you have more question please asked on our forum <a href=\"https://www."
+"pickplugins.com/questions/\">https://www.pickplugins.com/questions/</a>"
+msgstr ""
+"Si vous avez d'autres questions, veuillez les poser sur notre forum <a href="
+"\"https://www.pickplugins.com/questions/\">https://www.pickplugins.com/"
+"questions/</a>"
+
+#: includes/classes/class-settings.php:556
+msgid "Our Plugins"
+msgstr "Nos Plugins"
+
+#: includes/classes/class-settings.php:559
+msgid "Our plugins you may looking for"
+msgstr "Nos plugins que vous recherchez"
+
+#: includes/classes/class-settings.php:560
+msgid "Please take a look on our plugin list may help on your projects.."
+msgstr ""
+"Jetez un coup d'oeil sur notre liste de plugins qui peut vous aider sur vos "
+"projets..."
+
+#: includes/classes/class-settings.php:565
+msgid "Popular Plugins"
+msgstr "Plugins populaires"
+
+#: includes/classes/class-settings.php:566
+msgid ""
+"See our all plugins here <a href=\"https://www.pickplugins.com/plugins/"
+"\">https://www.pickplugins.com/plugins/</a>"
+msgstr ""
+"Voir tous nos plugins ici <a href=\"https://www.pickplugins.com/plugins/"
+"\">https://www.pickplugins.com/plugins/</a>"
+
+#: includes/classes/class-settings.php:613
+#: includes/classes/class-settings.php:614
+msgid "User Verification - Help"
+msgstr "Vérification de l'utilisateur - Aide"
+
+#: includes/classes/uv-class-column-users.php:26
+msgid "Verification Status"
+msgstr "Statut de vérification"
+
+#: includes/classes/uv-class-column-users.php:43 includes/functions.php:235
+msgid "Approved"
+msgstr "Approuvé"
+
+#: includes/classes/uv-class-column-users.php:43 includes/functions.php:235
+msgid "Pending approval"
+msgstr "En attente d'approbation"
+
+#: includes/classes/uv-class-column-users.php:51
+msgid "Approve now"
+msgstr "Approuver maintenant"
+
+#: includes/classes/uv-class-column-users.php:56
+msgid "Remove Approval"
+msgstr "Retirer l'approbation"
+
+#: includes/functions-paid-memberships-pro.php:158
+#: includes/functions-woocommerce.php:52 includes/functions-woocommerce.php:94
+#: includes/functions.php:447
+msgid "This email domain is not allowed!"
+msgstr "Ce domaine email n'est pas autorisé !"
+
+#: includes/functions-recaptcha.php:35 includes/functions-recaptcha.php:77
+#: includes/functions-recaptcha.php:119 includes/functions-recaptcha.php:178
+#: includes/functions-recaptcha.php:254
+msgid "Captcha Error. Please try again."
+msgstr "Erreur Captcha. Veuillez réessayer."
+
+#: includes/functions-woocommerce.php:161
+msgid "Registration success, please check mail for details."
+msgstr "Inscription réussie, veuillez vérifier vos mails pour les détails."
+
+#: includes/functions-woocommerce.php:163
+msgid ""
+"Send in your registration application today!<br /> NOTE: Your account will "
+"be held for moderation and you will be unable to login until it is approved."
+msgstr ""
+"Envoyez votre demande d'inscription dès aujourd'hui!<br /> NOTE : Votre "
+"compte sera conservé pour la modération et vous ne serez pas en mesure de "
+"vous connecter avant qu'il ne soit approuvé."
+
+#: includes/functions.php:77
+msgid "Approve"
+msgstr "Approuver"
+
+#: includes/functions.php:79
+msgid "Disapprove"
+msgstr "Désapprouver"
+
+#: includes/functions.php:175
+#, php-format
+msgid "%s user account marked as approved."
+msgstr "Le compte d'utilisateur %s est marqué comme approuvé."
+
+#: includes/functions.php:193
+#, php-format
+msgid "%s user account marked as disapproved."
+msgstr "Le compte d'utilisateur %s est marqué comme désapprouvé."
+
+#: includes/functions.php:531
+msgid "None"
+msgstr "Aucune"
+
+#: includes/functions.php:615 includes/functions.php:1461
+msgid "Invalid activation Key"
+msgstr "Clé d'activation invalide"
+
+#: includes/functions.php:623
+msgid "Your key is expired"
+msgstr "Votre clé est expirée"
+
+#: includes/functions.php:631 includes/functions.php:1483
+#: includes/functions.php:1505
+msgid "Your account is now verified"
+msgstr "Votre compte est maintenant vérifié"
+
+#: includes/functions.php:639 includes/functions.php:903
+msgid "Activation email sent, Please check latest item on email inbox"
+msgstr ""
+"Courriel d'activation envoyé, veuillez vérifier vos emails dans votre boîte "
+"de réception de courriel"
+
+#: includes/functions.php:945
+msgid "Sorry user doesn't exist."
+msgstr "Désolé, l'utilisateur n'existe pas."
+
+#: includes/functions.php:1257
+msgid "Verify your email first!"
+msgstr "Vérifiez d'abord votre courriel !"
+
+#: includes/functions.php:1269
+msgid "Error:"
+msgstr "Erreur :"
+
+#: includes/functions.php:1275
+msgid "Resend verification email"
+msgstr "Renvoyer l'email de vérification"
+
+#: includes/functions.php:1439
+msgid "Activation Email Sent"
+msgstr "Email d'activation envoyé"
+
+#: includes/functions.php:1777
+msgid "Enable ?"
+msgstr "Activer ?"
+
+#: includes/functions.php:1833
+msgid "Email To: (Copy)"
+msgstr "Envoyer par courriel à : (Copie)"
+
+#: includes/functions.php:1841
+msgid "Email from name:"
+msgstr "Email du nom :"
+
+#: includes/functions.php:1849
+msgid "Email from:"
+msgstr "Courriel de :"
+
+#: includes/functions.php:1857
+msgid "Email Subject:"
+msgstr "Sujet de l'e-mail :"
+
+#: includes/functions.php:1885
+msgid "Email Body:"
+msgstr "Corps du courriel :"
