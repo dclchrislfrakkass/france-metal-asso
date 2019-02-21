@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
@@ -622,7 +622,10 @@ CREATE TABLE `titre` (
   `idTitre_Titre` int(9) NOT NULL,
   `nomTitre_Titre` varchar(250) DEFAULT NULL,
   `clip_Titre` varchar(250) DEFAULT NULL,
+  `clip_Titre2` varchar(250) DEFAULT NULL,
   `lienEcouteTitre_Titre` varchar(250) DEFAULT NULL,
+  `lienEcouteTitre_Titre2` varchar(250) DEFAULT NULL,
+  `lienEcouteTitre_Titre3` varchar(250) DEFAULT NULL,
   `idAlbum_Album` int(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
