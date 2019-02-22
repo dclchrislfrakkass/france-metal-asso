@@ -8,6 +8,8 @@ $userID= $user->ID;
 $userlogin = $user->user_login;
 $username = $user->display_name;
 
+// Vider cette variable " " pour stopper les votes
+$dateOK = "Ok";
 // Appel connexion a la base
 require 'pdo.php';
 $title = 'Groupes';
@@ -98,7 +100,7 @@ $NbrGroupes = $reponse->fetch();
             </li>
         </ul>
         <?php
-          if (!empty($ipUser)) {?>
+          if (!empty($ipUser && $dateOK)) {?>
             <p class="mb-0 ml-2"><?php echo $texte; ?></p>
         <?php
           }
@@ -159,7 +161,7 @@ $NbrGroupes = $reponse->fetch();
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($ipUser && $userEmail && $okvote)){?>
+                    if(!empty($ipUser && $userEmail && $okvote && $dateOK)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -217,7 +219,7 @@ $NbrGroupes = $reponse->fetch();
             $compteur ++; 
             };
             // bouton si connecte
-            if(!empty($ipUser && $userEmail && $okvote)){?>
+            if(!empty($ipUser && $userEmail && $okvote && $dateOK)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
             <?php
             };

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP-Members 2.9.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-members\n"
 "POT-Creation-Date: 2016-05-03 17:36-0500\n"
-"PO-Revision-Date: 2019-02-19 14:54+0100\n"
+"PO-Revision-Date: 2019-02-21 12:30+0100\n"
 "Last-Translator: Chad Butler <plugins@butlerblog.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -161,23 +161,23 @@ msgstr "Version:"
 
 #: admin/dialogs.php:158
 msgid "Quick Start Guide"
-msgstr ""
+msgstr "Guide de démarrage rapide"
 
 #: admin/dialogs.php:159
 msgid "Online User Guide"
-msgstr ""
+msgstr "Guide de l'utilisateur en ligne"
 
 #: admin/dialogs.php:160
 msgid "FAQs"
-msgstr ""
+msgstr "FAQs"
 
 #: admin/dialogs.php:167
 msgid "Thank you for using WP-Members"
-msgstr "Merci d'utiliser WP-Members !"
+msgstr "Merci d'utiliser WP-Members"
 
 #: admin/dialogs.php:168
 msgid "A plugin developed by"
-msgstr ""
+msgstr "Un plugin développé par"
 
 #: admin/dialogs.php:169
 msgid "Follow"
@@ -185,11 +185,11 @@ msgstr "Suivre"
 
 #: admin/dialogs.php:186 admin/dialogs.php:190
 msgid "Latest from RocketGeek"
-msgstr ""
+msgstr "Dernières nouvelles de RocketGeek"
 
 #: admin/dialogs.php:207 admin/dialogs.php:220
 msgid "Latest from ButlerBlog"
-msgstr ""
+msgstr "Dernières nouvelles de ButlerBlog"
 
 #: admin/includes/class-wp-members-admin-api.php:220
 msgid "Options"
@@ -225,7 +225,7 @@ msgstr "Réinitialiser le Mot de Passe"
 
 #: admin/includes/class-wp-members-admin-api.php:269
 msgid "Retrieve Username"
-msgstr ""
+msgstr "Récupérer le nom d'utilisateur"
 
 #: admin/includes/class-wp-members-admin-api.php:277
 msgid "Admin Notification"
@@ -233,49 +233,48 @@ msgstr "Notification Admin"
 
 #: admin/post.php:51 admin/post.php:53 admin/tab-options.php:87
 msgid "Block"
-msgstr ""
+msgstr "Bloquer"
 
 #: admin/post.php:52 admin/post.php:54
 msgid "Unblock"
-msgstr ""
+msgstr "Débloquer"
 
 #: admin/post.php:188
 #, php-format
 msgid "%s Restriction"
-msgstr ""
+msgstr "Restriction %s"
 
 #: admin/post.php:215
 #, php-format
 msgid "%s are blocked by default."
-msgstr ""
+msgstr "Les % sont bloqués par défaut."
 
 #: admin/post.php:216
 #, php-format
 msgid "Unblock this %s"
-msgstr ""
+msgstr "Débloquer ce %s"
 
 #: admin/post.php:219
 #, php-format
 msgid "%s are not blocked by default."
-msgstr ""
+msgstr "Les %s ne sont pas bloqués par défaut."
 
 #: admin/post.php:220
 #, php-format
 msgid "Block this %s"
-msgstr ""
+msgstr "Bloquer ce %s"
 
 #: admin/post.php:226 admin/tab-fields.php:282 admin/tab-fields.php:473
-#, fuzzy
 msgid "Edit"
-msgstr "Editer vos informations"
+msgstr "Éditer vos informations"
 
 #: admin/post.php:313
 msgid "Unblocked?"
-msgstr ""
+msgstr "Débloquer?"
 
 #: admin/post.php:313
 msgid "Blocked?"
-msgstr ""
+msgstr "Bloquer?"
 
 #: admin/post.php:345 admin/post.php:346 admin/user-export.php:108
 msgid "Yes"
@@ -284,7 +283,7 @@ msgstr "Oui"
 #: admin/tab-captcha.php:42 admin/tab-dialogs.php:47 admin/tab-emails.php:80
 #: admin/tab-fields.php:44 admin/tab-options.php:58
 msgid "Need help?"
-msgstr ""
+msgstr "Besoin d'aide?"
 
 #: admin/tab-captcha.php:53
 msgid "Manage reCAPTCHA Options"
@@ -317,7 +316,7 @@ msgstr ""
 
 #: admin/tab-captcha.php:73 admin/tab-captcha.php:99
 msgid "reCAPTCHA Keys"
-msgstr "Clés reCAPTCHA"
+msgstr "clés reCAPTCHA"
 
 #: admin/tab-captcha.php:75
 #, php-format
@@ -363,60 +362,65 @@ msgid ""
 "reCAPTCHA requires an API key, consisting of a \"site\" and a \"secret\" "
 "key. You can sign up for a %s free reCAPTCHA key%s"
 msgstr ""
+"reCAPTCHA nécessite une clé API, composée d'une clé \"site\" et d'une clé "
+"\"secrète\". Vous pouvez vous inscrire pour une clé %s gratuite reCAPTCHA key"
+"%s"
 
 #: admin/tab-captcha.php:102
 msgid "Site Key"
-msgstr ""
+msgstr "Clé de site"
 
 #: admin/tab-captcha.php:103
 msgid "Secret Key"
-msgstr ""
+msgstr "Clé secrète"
 
 #: admin/tab-captcha.php:134
 msgid "Characters for image"
-msgstr ""
+msgstr "Caractères pour l'image"
 
 #: admin/tab-captcha.php:138
 msgid "Number of characters"
-msgstr ""
+msgstr "Nombre de caractères"
 
 #: admin/tab-captcha.php:142
 msgid "Image dimensions"
-msgstr ""
+msgstr "Dimensions de l'image"
 
 #: admin/tab-captcha.php:143
 msgid "Width"
-msgstr ""
+msgstr "Largeur"
 
 #: admin/tab-captcha.php:143
 msgid "Height"
-msgstr ""
+msgstr "Hauteur"
 
 #: admin/tab-captcha.php:146
 msgid "Font color of characters"
-msgstr ""
+msgstr "Couleur de police des caractères"
 
 #: admin/tab-captcha.php:150
 msgid "Background color of image"
-msgstr ""
+msgstr "Couleur d'arrière-plan de l'image"
 
 #: admin/tab-captcha.php:154
 msgid "Font size"
-msgstr ""
+msgstr "Taille de police"
 
 #: admin/tab-captcha.php:158
 msgid "Width between characters"
-msgstr ""
+msgstr "Largeur entre les caractères"
 
 #: admin/tab-captcha.php:162
 msgid "Image type"
-msgstr ""
+msgstr "Type d'image"
 
 #: admin/tab-captcha.php:176
 msgid ""
 "To use Really Simple CAPTCHA, you must have the Really Simple CAPTCHA plugin "
 "installed and activated."
 msgstr ""
+"Pour utiliser Really Simple CAPTCHA, vous devez avoir le plugin Really "
+"Simple CAPTCHA installé et activé."
 
 #: admin/tab-captcha.php:200
 msgid "Update CAPTCHA Settings"
@@ -503,7 +507,7 @@ msgstr "Une liste de shortcodes est disponible ici."
 
 #: admin/tab-emails.php:49
 msgid "Set a custom email address"
-msgstr "Définir un adresse email personnalisée."
+msgstr "Définir un adresse email personnalisée"
 
 #: admin/tab-emails.php:50 admin/tab-emails.php:54 admin/tab-emails.php:64
 msgid "(optional)"
@@ -544,10 +548,12 @@ msgstr ""
 #: admin/tab-fields.php:184
 msgid "Option Name must contain only letters, numbers, and underscores"
 msgstr ""
+"Le nom de l'option ne doit contenir que des lettres, des chiffres et des "
+"tirets de soulignement."
 
 #: admin/tab-fields.php:191
 msgid "A field with that option name already exists"
-msgstr ""
+msgstr "Un champ avec ce nom d'option existe déjà"
 
 #: admin/tab-fields.php:197
 #, php-format
@@ -556,10 +562,15 @@ msgid ""
 "register_taxonomy#Reserved_Terms\" target=\"_blank\">reserved term</a>. "
 "Field was not added."
 msgstr ""
+"Désolé, \"%s\" est un <a href=\"https://codex.wordpress.org/"
+"Function_Reference/register_taxonomy#Reserved_Terms\" target=\"_blank\"> "
+"terme réservé</a>. Le champ n'a pas été ajouté."
 
 #: admin/tab-fields.php:215
 msgid "Checked value is required for checkboxes. Nothing was updated."
 msgstr ""
+"Une valeur cochée est requise pour les cases à cocher. Rien n'a été mis à "
+"jour."
 
 #: admin/tab-fields.php:245
 msgid "field was added"
@@ -748,7 +759,7 @@ msgstr ""
 
 #: admin/tab-fields.php:521
 msgid "native"
-msgstr "Natif WP?"
+msgstr "natif WP"
 
 #: admin/tab-fields.php:531
 msgid "Active"
@@ -788,7 +799,7 @@ msgstr ""
 
 #: admin/tab-options.php:102
 msgid "Auto Excerpt:"
-msgstr "Montrer des extraits"
+msgstr "Montrer des extraits :"
 
 #: admin/tab-options.php:122
 msgid "Number of words in excerpt:"
@@ -826,7 +837,7 @@ msgstr "Modérer l'inscription"
 #: admin/tab-options.php:154
 msgid "Holds new registrations for admin approval"
 msgstr ""
-"Attendre l'assentiment de l'administrateur pour les nouvelles inscriptions "
+"Attendre l'assentiment de l'administrateur pour les nouvelles inscriptions"
 
 #: admin/tab-options.php:155
 msgid "Ignore warning messages"
@@ -870,7 +881,7 @@ msgstr ""
 
 #: admin/tab-options.php:196
 msgid "Register Page:"
-msgstr "page de création de compte:"
+msgstr "Page de création de compte:"
 
 #: admin/tab-options.php:199
 msgid "For creating a register link in the login form"
@@ -910,7 +921,7 @@ msgstr "Les réglages de WP-Members ont été mis à jour"
 
 #: admin/tab-options.php:530 admin/tab-options.php:559
 msgid "USE CUSTOM URL BELOW"
-msgstr ""
+msgstr "UTILISER L'URL PERSONNALISÉE CI-DESSOUS"
 
 #: admin/tab-options.php:548
 msgid "Select a page"
@@ -947,7 +958,7 @@ msgstr "WP-Members Champs supplémentaires"
 #: admin/user-profile.php:115 inc/users.php:90 inc/wp-registration.php:37
 #: inc/wp-registration.php:154
 msgid "(required)"
-msgstr "Requis?"
+msgstr "(requis)"
 
 #: admin/user-profile.php:283
 msgid "Activate this user?"
@@ -967,7 +978,7 @@ msgstr "IP de l'inscription"
 
 #: admin/users.php:59 admin/users.php:63
 msgid "Activate"
-msgstr ""
+msgstr "Activer"
 
 #: admin/users.php:61 admin/users.php:65
 msgid "Export"
@@ -979,7 +990,7 @@ msgstr "Exporter tous les utilisateurs"
 
 #: inc/class-wp-members-widget.php:18
 msgid "Displays the WP-Members sidebar login."
-msgstr ""
+msgstr "Affiche la barre de connexion latérale WP-Members."
 
 #: inc/class-wp-members-widget.php:33 inc/class-wp-members-widget.php:76
 msgid "Login Status"
@@ -995,7 +1006,7 @@ msgstr "Rediriger vers (facultatif) :"
 
 #: inc/class-wp-members.php:388 inc/shortcodes.php:117 inc/shortcodes.php:386
 msgid "There was an error with the CAPTCHA form."
-msgstr "Une erreur s'est produite avec le formulaire CAPTCHA"
+msgstr "Une erreur s'est produite avec le formulaire CAPTCHA."
 
 #: inc/class-wp-members.php:546
 msgid "First Name"
@@ -1137,7 +1148,7 @@ msgstr "Adresse email"
 
 #: inc/class-wp-members.php:597
 msgid "New User Registration"
-msgstr "Nouvel Utilisateur?"
+msgstr "Nouvel Utilisateur"
 
 #: inc/class-wp-members.php:598
 msgid "Choose a Username"
@@ -1221,7 +1232,7 @@ msgstr "Désolé, le nom d'utilisateur est un champ requis"
 
 #: inc/class-wp-members.php:623
 msgid "Passwords did not match."
-msgstr "Les mots de passe ne concordent pas"
+msgstr "Les mots de passe ne concordent pas."
 
 #: inc/class-wp-members.php:624
 msgid "Emails did not match."
@@ -1247,11 +1258,11 @@ msgstr "Vous êtes connecté(e), %s"
 
 #: inc/class-wp-members.php:632
 msgid "Click to log out."
-msgstr "Déconnexion"
+msgstr "Cliquez pour vous déconnecter."
 
 #: inc/class-wp-members.php:633
 msgid "Begin using the site."
-msgstr "Commencer à utiliser le site"
+msgstr "Commencer à utiliser le site."
 
 #: inc/class-wp-members.php:635
 msgid "Click to log out"
@@ -1263,7 +1274,7 @@ msgstr "déconnexion"
 
 #: inc/class-wp-members.php:641
 msgid "click here to log out"
-msgstr "Se déconnecter"
+msgstr "cliquez ici pour vous déconnecter"
 
 #: inc/class-wp-members.php:642
 msgid "Login Failed!<br />You entered an invalid username or password."
@@ -1300,8 +1311,8 @@ msgstr "Désolé, ce nom d'utilisateur est pris, veuillez en saisir un autre."
 msgid ""
 "Sorry, that email address already has an account.<br />Please try another."
 msgstr ""
-"Désolé, cette adrese email fait déjà l'objet d'un compte.<br />Veuillez en "
-"saisir une autre"
+"Désolé, cette adresse email fait déjà l'objet d'un compte.<br />Veuillez en "
+"saisir une autre."
 
 #: inc/class-wp-members.php:654
 msgid ""
@@ -1314,7 +1325,7 @@ msgstr ""
 
 #: inc/class-wp-members.php:655
 msgid "Your information was updated!"
-msgstr "Vos informations ont été mises à jour."
+msgstr "Vos informations ont été mises à jour!"
 
 #: inc/class-wp-members.php:656
 msgid "Passwords did not match.<br /><br />Please try again."
@@ -1370,7 +1381,7 @@ msgstr "Le paramètre à vérifier est incorrect"
 msgid ""
 "reCAPTCHA API keys are tied to a specific domain name for security reasons."
 msgstr ""
-"Les clés API de reCAPTCHA sont liées à un nom de domaine spécifique, par "
+"les clés API de reCAPTCHA sont liées à un nom de domaine spécifique, par "
 "raison de sécurité."
 
 #: inc/register.php:581

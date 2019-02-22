@@ -1,0 +1,38 @@
+#shadowElem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 9998;
+    
+  }
+  #dropElem {
+    display: none;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    margin: 20px;
+    background: #30024bde;
+    z-index: 9999;
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 10px 10px 47px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 47px 1px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 47px 1px rgba(0,0,0,0.75);
+  }
+  #dropContent {
+    position: relative;
+  }
+  #dropClose {
+    position: absolute;
+    z-index: 99999;
+    cursor: pointer;
+    top: -32px;
+    right: -30px;
+    padding: 5px;
+    background-color: black;
+    border-radius: 10px 10px 10px 10px;
+    color: #fff;
+  }
