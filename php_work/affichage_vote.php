@@ -59,8 +59,6 @@ $voteTotal = $req7->fetch();
     GROUP BY nomGroupe_Groupe
     ORDER BY note_Album DESC LIMIT 3");
     while ($row = $req->fetch()){
-        $chaine='';
-        $chaine2= '';
         $req2 = $bd->prepare("SELECT * FROM groupe
         NATURAL JOIN album
         NATURAL JOIN a_voté_pour

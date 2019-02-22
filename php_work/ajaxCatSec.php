@@ -2,9 +2,7 @@
 
 require '../php/pdo.php';
 
-
 ?>
-
 <script>
     var select = document.getElementById( "styleS" )
     select.addEventListener( "change", function ( e )
@@ -39,54 +37,9 @@ if(isset($_POST['idStylePrincipal_StylePrincipal'])){
             <option value='1'>Ajouter un nouveau style</option>
         </select>
 
-    
-
-
 <div id="inputToDisplay">
 <div class="form-group col-md-6">
     <label for="inputNSS">Style Secondaire à ajouter</label>
     <input type="text" class="form-control" id="inputNewSS" placeholder="Nouveau Style Secondaire">
+    </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-// <script>
-// function activer()
-//     {
-//         var select = document.getElementById( "styleS" )
-
-//         var input = document.getElementById( "inputToDisplay" )
- 
-//         if ( select.value == "1" )
-//         input.style.display = "inline-block";
-//             console.log(select.value);
-//         else
-//             input.style.display = "none";
-//     }
-// </script>
-
-
-// <script>
-//     var select = document.getElementById( "styleS" )
-//     select.addEventListener( "change", function ( e )
-//     {
-//         var input = document.getElementById( "inputToDisplay" )
- 
-//         if ( e.target.value == "-1" )
-//             console.log(e.target.value);
-//             input.style.display = "block"
-//         else
-//             input.style.display = "none"
-//     } )
-</script>

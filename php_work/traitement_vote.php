@@ -8,7 +8,7 @@ ob_start();
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./affichage_categorie.php">Annuler et retourner aux catégories</a>
+                <a class="nav-link" href="./affichage_categorie.php">Annuler et retourner aux catégories<a>
             </li>
         </ul>
     </nav>
