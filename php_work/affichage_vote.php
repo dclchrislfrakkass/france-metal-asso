@@ -15,7 +15,6 @@ $voteTotal = $req7->fetch();
         </ul>
     </nav>
 </header>
-
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
     <h1 class="text-center">Statistiques</h1>
@@ -33,7 +32,6 @@ $voteTotal = $req7->fetch();
                 <?php include 'graph3.php';?>
             </div>
         </div>
-
 <hr style="border: 10px solid white";>
 
 <div class='row'>

@@ -10,6 +10,16 @@ require '../php/pdo.php';
 $title = 'Groupes';
 ob_start();
 $choix = $_GET['id'];
+$req= $bd->prepare("SELECT * FROM votePossible");
+$req->execute();
+$row=$req->fetch();
+$vote = $row['voteOuvert'];
+if ($vote == 1){
+    $votePossible = 'ok';
+    
+} else if ($vote == 0) {
+    $votePossible = '';
+}
 
 $idmembre = '';
 $req=$bd->prepare("SELECT * FROM styleprincipal
@@ -77,7 +87,7 @@ $req->execute(array(
             </li>
         </ul>
         <?php
-          if (!empty($ipUser)) {?>
+          if (!empty($ipUser && $votePossible)) {?>
             <p class="mb-0 ml-2"><?php echo $texte; ?></p>
         <?php
           }
@@ -125,7 +135,7 @@ $req->execute(array(
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($ipUser && $userEmail && $okvote)){?>
+                    if(!empty($ipUser && $userEmail && $okvote && $votePossible)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -162,9 +172,11 @@ $req->execute(array(
                             <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
                         <?php
                         }
-                        
+                        ?>
+                        <p>Audio : 
+                        <?php
                         if(!empty($lienEcoute)){?>
-                            <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                            <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
                         <?php
                         }    
                     
@@ -174,10 +186,11 @@ $req->execute(array(
                         }
                     
                         if(!empty($lienEcoute3)){?>
-                            <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
+                            <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
                         <?php
                         }
-                        ?> 
+                        ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -185,7 +198,7 @@ $req->execute(array(
             $compteur ++; 
             };
             // bouton si connecte
-            if(!empty($ipUser && $userEmail && $okvote)){?>
+            if(!empty($ipUser && $userEmail && $okvote && $votePossible)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
             <?php
             };
