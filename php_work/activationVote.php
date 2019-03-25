@@ -1,6 +1,6 @@
 <?php
 // Appel connexion a la base
-require '../php/pdo.php';
+require 'pdo.php';
 $title = 'Activation des votes';
 ob_start();
 
@@ -45,7 +45,7 @@ if ($vote == 1){
 $req->closeCursor();
 
 $content = ob_get_clean();
-require './template.php';
+require 'template.php';
 ?>
 
 

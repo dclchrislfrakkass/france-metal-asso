@@ -9,12 +9,23 @@ $userlogin = $user->user_login;
 $username = $user->display_name;
 
 // Vider cette variable " " pour stopper les votes
-$dateOK = "Ok";
+// $dateOK = "Ok";
 // Appel connexion a la base
 require 'pdo.php';
 $title = 'Groupes';
 ob_start();
 $choix = $_GET['id'];
+$req= $bd->prepare("SELECT * FROM votePossible");
+$req->execute();
+$row=$req->fetch();
+$vote = $row['voteOuvert'];
+if ($vote == 1){
+    $votePossible = 'ok';
+    
+} else if ($vote == 0) {
+    $votePossible = '';
+}
+
 $idmembre = $userID;
 $req=$bd->prepare("SELECT * FROM styleprincipal
 WHERE idStyleprincipal_StylePrincipal=:choix");
@@ -41,25 +52,25 @@ switch ($row['comptage']) {
         $okvote = false;
         $longueur = 0;
         $texte = 'Plus de votes';
-        echo '3';
+        // echo '3';
         break;
     case 2:
         $okvote = true;
         $longueur = 1;
         $texte = '1 vote disponible';
-        echo '2';
+        // echo '2';
         break;
     case 1:
         $okvote = true;
         $longueur = 2;
         $texte = '2 votes disponibles';
-        echo '1';
+        // echo '1';
         break;
     case 0:
         $okvote = true;
         $longueur = 3;
         $texte = '3 votes disponibles';
-        echo '0';
+        // echo '0';
         break;
 }
 $req->closeCursor();
@@ -100,7 +111,7 @@ $NbrGroupes = $reponse->fetch();
             </li>
         </ul>
         <?php
-          if (!empty($ipUser && $dateOK)) {?>
+          if (!empty($ipUser && $votePossible)) {?>
             <p class="mb-0 ml-2"><?php echo $texte; ?></p>
         <?php
           }
@@ -112,16 +123,6 @@ $NbrGroupes = $reponse->fetch();
 </header>
 <body class="position-absolute mt-sm-3 mt-5 pt-2">   
     <div class="mt-5 mt-sm-none contenair position-relative"></div>  <!-- div intercalaire -->
-
-<?php
-    // echo '<br><br><br>';
-    // echo 'Display Name ='.$username.'<br>';
-    // echo 'login ='.$userlogin.'<br>';
-    // echo 'login ='.$userEmail.'<br>';
-    // echo 'IP ='.$ipUser.'<br>';
-    // echo 'ID ='.$userID.'<br>';
-?>
-
     <form action="/votes/" method="POST">
         <div class="row">
             <?php 
@@ -161,7 +162,7 @@ $NbrGroupes = $reponse->fetch();
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
                     // checkbox si connecte  
-                    if(!empty($ipUser && $userEmail && $okvote && $dateOK)){?>
+                    if(!empty($ipUser && $userEmail && $okvote && $votePossible)){?>
                         <div class="float-none float-sm-right text-center mb-2 mb-sm-none">
                             <p class="mb-1">Votez pour ce groupe</p>
                             <input type="checkbox" name="idAlbum[]" value="<?php echo $idAlbum; ?>">
@@ -196,9 +197,11 @@ $NbrGroupes = $reponse->fetch();
                             <a target="_blank" href="<?php echo $clip2;?> "><i class="fab fa-youtube" style="color: red; font-size: 2rem"></i></a></p>
                         <?php
                         }
-                        
+                        ?>
+                        <p>Audio(s) : 
+                        <?php
                         if(!empty($lienEcoute)){?>
-                            <p>Lien(s): <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
+                            <a target="_blank" href="<?php echo $lienEcoute;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a>
                         <?php
                         }    
                     
@@ -211,7 +214,8 @@ $NbrGroupes = $reponse->fetch();
                             <a target="_blank" href="<?php echo $lienEcoute3;?> "><i class="far fa-play-circle" style="font-size: 2rem"></i></a></p>
                         <?php
                         }
-                        ?> 
+                        ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -219,7 +223,7 @@ $NbrGroupes = $reponse->fetch();
             $compteur ++; 
             };
             // bouton si connecte
-            if(!empty($ipUser && $userEmail && $okvote && $dateOK)){?>
+            if(!empty($ipUser && $userEmail && $okvote && $votePossible)){?>
                 <button type="submit" class="btn_valid position-fixed btn btn-danger">Valider</button>
             <?php
             };
