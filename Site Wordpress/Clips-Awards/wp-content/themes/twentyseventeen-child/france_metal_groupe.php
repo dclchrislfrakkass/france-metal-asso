@@ -157,7 +157,7 @@ $NbrGroupes = $reponse->fetch();
                 </div>
                 <!-- infos de chaque groupe -->
                 <div class="media-body d-flex flex-column d-md-block align-items-center align-items-md-left">
-                    <h5 class="mt-0 mb-1 font-weight-bold"><?php echo $nomGroupe; ?></h5>
+                    <h5 class="mt-0 mb-1 font-weight-bold"><span style="color: orange;"><?php echo $nomGroupe; ?></span></h5>
                     <h6 class="mt-0 mb-2 font-weight-bold"><?php echo $styleSec; ?></h6>
                     <button type="button" class="btn btn-danger btn-md mb-2" data-target="#MonCollapse<?php echo $compteur ?>" data-toggle="collapse" aria-expanded="false" aria-controls=".MonCollapse">Voir +</button>
                     <?php  
@@ -176,7 +176,7 @@ $NbrGroupes = $reponse->fetch();
                     
                         <?php
                         if(!empty($nomAlbum)){?>
-                            <p>Nom de l'album : <?php echo $nomAlbum;?></p>
+                            <p>Nom du Clip : <span style="color: orange;"><?php echo $nomAlbum;?></span></p>
                         <?php
                         }
                         if(!empty($dateSortie)){?>
